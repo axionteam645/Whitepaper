@@ -3,40 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AXION Whitepaper | Code-Verified Edition</title>
-  <meta name="description" content="AXION Whitepaper - Code-Verified, expanded technical document covering protocol architecture, security, tokenomics, AI layer, roadmap, and risk disclosure." />
+  <title>AXION Whitepaper | Intelligent Layer for DeFi</title>
+  <meta
+    name="description"
+    content="AXION Whitepaper styled in the official AXION premium product design language."
+  />
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/axionteam645/axion-dashboard/main/axion-logo.png" />
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/axionteam645/axion-dashboard/main/axion-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg:#050814;
-      --bg-2:#0a1022;
-      --panel:rgba(10,16,34,.78);
-      --panel-2:rgba(14,24,48,.92);
-      --line:rgba(120,170,255,.18);
-      --line-strong:rgba(120,170,255,.34);
-      --text:#eaf1ff;
-      --muted:#9cb0d5;
-      --blue:#6aa9ff;
-      --cyan:#5de6ff;
-      --violet:#9b7bff;
-      --green:#58f0b6;
-      --shadow:0 12px 40px rgba(0,0,0,.35);
-      --glow:0 0 0 1px rgba(110,170,255,.10), 0 0 30px rgba(93,230,255,.08);
-      --radius:22px;
-      --max:1180px;
+      --bg:#040814;
+      --text:#ecf3ff;
+      --muted:#99a8c7;
+      --cyan:#4ed8ff;
+      --blue:#5f8cff;
+      --purple:#a85cff;
+      --pink:#ff5cb8;
+      --gold:#ffc95c;
+      --green:#43f3b1;
+      --shadow:0 18px 60px rgba(0,0,0,.42);
+      --max:1280px;
     }
 
-    *{box-sizing:border-box}
+    *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0;
-      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      color:var(--text);
+      font-family:'Inter',sans-serif;
       background:
-        radial-gradient(circle at 20% 20%, rgba(93,230,255,.12), transparent 28%),
-        radial-gradient(circle at 80% 10%, rgba(155,123,255,.14), transparent 26%),
-        radial-gradient(circle at 50% 80%, rgba(106,169,255,.08), transparent 34%),
-        linear-gradient(180deg, #040814 0%, #071021 45%, #060b18 100%);
-      min-height:100vh;
+        radial-gradient(circle at 20% 0%, rgba(78,216,255,.16), transparent 24%),
+        radial-gradient(circle at 80% 10%, rgba(168,92,255,.15), transparent 26%),
+        radial-gradient(circle at 50% 100%, rgba(255,92,184,.08), transparent 28%),
+        linear-gradient(180deg,#02050e 0%, #040814 36%, #060b1a 100%);
+      color:var(--text);
       overflow-x:hidden;
     }
 
@@ -45,261 +47,507 @@
       position:fixed;
       inset:0;
       pointer-events:none;
-      background-image:
-        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-      background-size:40px 40px;
-      mask-image:radial-gradient(circle at center, #000 55%, transparent 100%);
-      opacity:.28;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(79,168,255,.18), transparent 18%),
+        radial-gradient(circle at 90% 12%, rgba(255,92,184,.12), transparent 15%),
+        radial-gradient(circle at 86% 88%, rgba(78,216,255,.08), transparent 20%);
+      z-index:-2;
     }
 
-    .wrap{
-      width:min(var(--max), calc(100% - 32px));
-      margin:0 auto;
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:radial-gradient(rgba(255,255,255,.65) .7px, transparent .7px);
+      background-size:38px 38px;
+      opacity:.08;
+      z-index:-1;
     }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{
+      width:min(calc(100% - 32px), var(--max));
+      margin-inline:auto;
+    }
+
+    .nav-wrap{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(18px);
+      background:rgba(4,9,20,.66);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .nav{
+      width:min(calc(100% - 32px), var(--max));
+      margin-inline:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      min-height:82px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
+      flex-shrink:0;
+    }
+
+    .brand-mark{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      overflow:hidden;
+      display:grid;
+      place-items:center;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.03)),
+        linear-gradient(135deg, var(--cyan), var(--blue), var(--purple), var(--pink), var(--gold));
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.08),
+        0 0 30px rgba(112,118,255,.18);
+    }
+
+    .brand-mark img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .brand-text strong{
+      display:block;
+      font-size:18px;
+      letter-spacing:.08em;
+    }
+
+    .brand-text small{
+      display:block;
+      color:#d3def8;
+      opacity:.9;
+      letter-spacing:.12em;
+      font-size:10px;
+      font-weight:700;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:16px;
+      flex:1;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      font-size:12px;
+      font-weight:700;
+      color:#cbd8f7;
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+
+    .nav-links a:hover{color:#fff}
+
+    .btn{
+      appearance:none;
+      border:none;
+      cursor:pointer;
+      border-radius:999px;
+      padding:14px 22px;
+      font-size:14px;
+      font-weight:800;
+      font-family:inherit;
+      transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+      color:#09111f;
+      background:linear-gradient(90deg, var(--cyan), var(--blue), var(--purple), var(--pink));
+      box-shadow:0 10px 26px rgba(124,94,255,.26);
+    }
+
+    .btn:hover{transform:translateY(-2px) scale(1.025)}
 
     .hero{
-      padding:38px 0 18px;
+      padding:86px 0 40px;
     }
 
-    .hero-card{
-      position:relative;
-      overflow:hidden;
-      border:1px solid var(--line);
-      background:
-        linear-gradient(135deg, rgba(13,21,41,.92), rgba(7,14,29,.96)),
-        linear-gradient(120deg, rgba(93,230,255,.08), rgba(155,123,255,.08));
-      border-radius:32px;
-      box-shadow:var(--shadow), var(--glow);
-      padding:34px 28px;
-    }
-
-    .hero-card::after{
-      content:"";
-      position:absolute;
-      right:-80px;
-      top:-80px;
-      width:260px;
-      height:260px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(93,230,255,.16), transparent 65%);
-      filter:blur(8px);
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:28px;
+      align-items:start;
     }
 
     .eyebrow{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding:8px 14px;
-      border:1px solid var(--line-strong);
+      padding:10px 14px;
+      border:1px solid rgba(255,255,255,.08);
       border-radius:999px;
       font-size:12px;
-      letter-spacing:.18em;
+      font-weight:800;
+      letter-spacing:.14em;
       text-transform:uppercase;
-      color:var(--cyan);
-      background:rgba(93,230,255,.07);
-      margin-bottom:16px;
-    }
-
-    h1{
-      margin:0 0 10px;
-      font-size:clamp(34px, 5vw, 56px);
-      line-height:1.02;
-      letter-spacing:-.03em;
-    }
-
-    .subtitle{
-      margin:0;
-      font-size:clamp(16px, 2.2vw, 22px);
-      color:#c9d8ff;
-      letter-spacing:.02em;
-    }
-
-    .meta{
-      margin-top:18px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-    }
-
-    .meta-chip{
-      padding:10px 14px;
-      border-radius:14px;
-      border:1px solid var(--line);
       background:rgba(255,255,255,.03);
+      color:#d8e3ff;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+    }
+
+    .gradient-title{
+      background:linear-gradient(90deg,#ffffff 0%, #9bddff 26%, #c4b1ff 58%, #ffcfe6 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero-copy h1{
+      margin:16px 0 18px;
+      font-size:clamp(44px, 7vw, 86px);
+      line-height:.96;
+      letter-spacing:-.06em;
+    }
+
+    .hero-copy .sub{
+      font-size:clamp(18px,2vw,24px);
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#c8d6f8;
+      margin-bottom:18px;
+    }
+
+    .hero-copy p{
       color:var(--muted);
-      font-size:13px;
+      line-height:1.85;
+      font-size:16px;
+      max-width:780px;
     }
 
-    .toc{
-      margin:22px 0 34px;
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
+    .hero-actions{
+      display:flex;
       gap:12px;
+      flex-wrap:wrap;
+      margin-top:26px;
     }
 
-    .toc a{
-      text-decoration:none;
-      color:var(--text);
-      border:1px solid var(--line);
-      background:rgba(9,15,31,.7);
-      border-radius:18px;
-      padding:14px 16px;
-      transition:.22s ease;
-      box-shadow:var(--glow);
-      font-size:14px;
-    }
-
-    .toc a:hover{
-      transform:translateY(-2px);
-      border-color:rgba(93,230,255,.34);
-      color:#fff;
-    }
-
-    .section{
-      margin:0 0 22px;
-      padding:26px 24px;
-      background:linear-gradient(180deg, rgba(11,18,36,.88), rgba(8,13,27,.92));
-      border:1px solid var(--line);
-      border-radius:28px;
-      box-shadow:var(--shadow), var(--glow);
+    .card{
       position:relative;
+      background:linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.025));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:24px;
+      box-shadow:var(--shadow);
       overflow:hidden;
     }
 
-    .section::before{
+    .card::before{
       content:"";
       position:absolute;
-      inset:0 auto auto 0;
-      width:100%;
-      height:1px;
-      background:linear-gradient(90deg, transparent, rgba(93,230,255,.36), transparent);
+      inset:0;
+      background:
+        linear-gradient(140deg, rgba(78,216,255,.08), transparent 28%, transparent 68%, rgba(255,92,184,.08)),
+        radial-gradient(circle at 100% 100%, rgba(255,201,92,.08), transparent 22%);
+      pointer-events:none;
+    }
+
+    .card-inner{
+      position:relative;
+      padding:24px;
+      z-index:1;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      color:#e4edff;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .title-row{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:10px;
+    }
+
+    .icon-badge{
+      width:48px;
+      height:48px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, rgba(78,216,255,.14), rgba(168,92,255,.10));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 0 18px rgba(78,216,255,.12);
+      color:#dff3ff;
+      flex-shrink:0;
+      font-weight:900;
+      font-size:18px;
+    }
+
+    .card h3{
+      margin:0;
+      font-size:28px;
+      letter-spacing:-.03em;
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:15px;
+    }
+
+    .hero-side-stack{
+      display:grid;
+      gap:18px;
+    }
+
+    .hero-side-stack .card h3{
+      font-size:24px;
+    }
+
+    .hero-side-stack .mini-card{
+      padding:16px 18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.035);
+      border:1px solid rgba(255,255,255,.08);
+      margin-top:12px;
+    }
+
+    .hero-side-stack .mini-card strong{
+      display:block;
+      font-size:15px;
+      margin-bottom:7px;
+    }
+
+    .section{
+      padding:88px 0 0;
+      position:relative;
+    }
+
+    .section:last-of-type{
+      padding-bottom:100px;
     }
 
     .section-head{
       display:flex;
-      gap:18px;
-      align-items:flex-start;
-      margin-bottom:18px;
+      align-items:end;
+      justify-content:space-between;
+      gap:24px;
+      margin-bottom:28px;
       flex-wrap:wrap;
     }
 
-    .section-num{
-      flex:0 0 auto;
-      min-width:64px;
-      height:64px;
-      display:grid;
-      place-items:center;
-      border-radius:18px;
-      border:1px solid var(--line-strong);
-      background:linear-gradient(135deg, rgba(93,230,255,.14), rgba(155,123,255,.12));
-      color:#fff;
-      font-weight:800;
-      font-size:22px;
-      box-shadow:0 0 25px rgba(93,230,255,.08);
+    .section-head h2{
+      margin:14px 0 0;
+      font-size:clamp(32px,4vw,60px);
+      line-height:1;
+      letter-spacing:-.04em;
     }
 
-    .section-head h2{
-      margin:0 0 6px;
-      font-size:clamp(24px,3.2vw,34px);
+    .whitepaper-nav{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .whitepaper-link{
+      padding:22px;
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+      transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .whitepaper-link:hover{
+      transform:translateY(-4px);
+      border-color:rgba(255,255,255,.16);
+      box-shadow:0 20px 50px rgba(0,0,0,.42),0 0 28px rgba(78,216,255,.08),0 0 44px rgba(168,92,255,.08);
+    }
+
+    .whitepaper-link strong{
+      font-size:18px;
+      display:block;
+      margin:0;
+    }
+
+    .whitepaper-link p{
+      margin-top:10px;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:14px;
+    }
+
+    .content-card{
+      margin-top:18px;
+    }
+
+    .content-card .card-inner{
+      padding:28px;
+    }
+
+    .content-block{
+      padding:16px 18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.035);
+      border:1px solid rgba(255,255,255,.08);
+      margin-top:14px;
+    }
+
+    .content-block h4{
+      font-size:16px;
+      margin-bottom:10px;
+      color:#ffffff;
       letter-spacing:-.02em;
     }
 
-    .section-head p{
-      margin:0;
+    .content-block p{
       color:var(--muted);
-      max-width:860px;
-      line-height:1.65;
-    }
-
-    .sub{
-      margin:20px 0 10px;
-      font-size:18px;
-      color:#fff;
-      letter-spacing:.01em;
-    }
-
-    .text{
-      color:#dce7ff;
-      line-height:1.8;
+      line-height:1.85;
       font-size:15px;
-      margin:0 0 12px;
+      margin-bottom:10px;
     }
 
-    .muted{
-      color:var(--muted);
-    }
+    .content-block p:last-child{margin-bottom:0}
 
-    .list{
-      margin:10px 0 14px 0;
+    .content-block ul{
       padding-left:18px;
-      color:#dce7ff;
-      line-height:1.8;
+      color:#d7e4ff;
+      line-height:1.85;
+      font-size:14px;
     }
 
-    .list li{margin-bottom:5px}
+    .content-block li{margin-bottom:6px}
 
     .proof{
-      margin:16px 0;
-      border:1px solid var(--line-strong);
-      border-radius:20px;
-      overflow:hidden;
-      background:linear-gradient(180deg, rgba(8,13,27,.98), rgba(9,15,31,.98));
-    }
-
-    .proof-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:12px 16px;
-      border-bottom:1px solid var(--line);
-      background:linear-gradient(90deg, rgba(93,230,255,.08), rgba(155,123,255,.08));
+      margin-top:14px;
+      padding:18px;
+      border-radius:18px;
+      background:rgba(5,10,20,.85);
+      border:1px solid rgba(255,255,255,.08);
+      overflow:auto;
     }
 
     .proof-title{
-      font-size:13px;
-      font-weight:700;
-      color:var(--cyan);
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:12px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(67,243,177,.08);
+      border:1px solid rgba(67,243,177,.20);
+      color:#dffff2;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.12em;
       text-transform:uppercase;
-      letter-spacing:.14em;
     }
 
-    pre{
-      margin:0;
-      padding:16px 18px;
-      overflow:auto;
-      font-size:13px;
-      line-height:1.65;
-      color:#d6f6ff;
+    .proof code,
+    .proof pre{
       font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      color:#dff8ff;
+      font-size:13px;
+      line-height:1.75;
       white-space:pre-wrap;
       word-break:break-word;
+      margin:0;
     }
 
-    .grid-2{
+    .phase-grid{
       display:grid;
-      grid-template-columns:1fr 1fr;
+      grid-template-columns:repeat(2,1fr);
       gap:16px;
+      margin-top:18px;
     }
 
-    .mini{
-      border:1px solid var(--line);
+    .phase{
+      padding:22px;
       border-radius:20px;
-      padding:16px 16px 14px;
-      background:rgba(255,255,255,.02);
+      border:1px solid rgba(255,255,255,.1);
+      background:rgba(255,255,255,.035);
+      position:relative;
+      overflow:hidden;
     }
 
-    .mini h4{
-      margin:0 0 8px;
+    .phase strong{
+      display:block;
+      font-size:17px;
+      margin-bottom:10px;
+      position:relative;
+      z-index:1;
+    }
+
+    .phase ul{
+      margin:0;
+      padding-left:18px;
+      color:#d3def7;
+      line-height:1.8;
       font-size:14px;
+      position:relative;
+      z-index:1;
+    }
+
+    .phase.phase-cyan{box-shadow:0 0 30px rgba(78,216,255,.12);border-color:rgba(78,216,255,.24)}
+    .phase.phase-blue{box-shadow:0 0 30px rgba(95,140,255,.12);border-color:rgba(95,140,255,.24)}
+    .phase.phase-purple{box-shadow:0 0 30px rgba(168,92,255,.12);border-color:rgba(168,92,255,.24)}
+    .phase.phase-teal{box-shadow:0 0 30px rgba(67,243,177,.12);border-color:rgba(67,243,177,.22)}
+    .phase.phase-green{box-shadow:0 0 30px rgba(255,201,92,.12);border-color:rgba(255,201,92,.24)}
+    .phase.phase-pink{box-shadow:0 0 30px rgba(255,92,184,.12);border-color:rgba(255,92,184,.22)}
+
+    .tokenomics-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .token-box{
+      padding:18px 14px;
+      border-radius:20px;
+      text-align:center;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+
+    .token-box span{
+      display:block;
+      color:#c9d8ff;
+      font-size:13px;
+      font-weight:700;
       letter-spacing:.08em;
       text-transform:uppercase;
-      color:var(--cyan);
+    }
+
+    .token-box strong{
+      display:block;
+      margin-top:8px;
+      font-size:28px;
+      color:#fff;
+      letter-spacing:-.03em;
     }
 
     .quote{
-      margin:16px 0 0;
+      margin-top:16px;
       padding:16px 18px;
       border-left:3px solid var(--cyan);
       border-radius:0 18px 18px 0;
@@ -309,496 +557,275 @@
       font-style:italic;
     }
 
-    .roadmap{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:16px;
-      margin-top:14px;
-    }
-
-    .phase{
-      border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(13,21,41,.85), rgba(9,15,31,.92));
-      border-radius:22px;
-      padding:18px;
-    }
-
-    .phase .tag{
-      display:inline-block;
-      margin-bottom:10px;
-      padding:6px 10px;
-      border:1px solid var(--line-strong);
-      border-radius:999px;
-      color:var(--cyan);
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-    }
-
-    .phase h3{
-      margin:0 0 10px;
-      font-size:20px;
-    }
-
-    .phase ul{
-      margin:0;
-      padding-left:18px;
-      line-height:1.8;
-      color:#dce7ff;
-    }
-
-    .tokenomics{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:14px;
-      margin:16px 0 8px;
-    }
-
-    .token-box{
-      border:1px solid var(--line);
-      border-radius:20px;
-      padding:18px 14px;
-      text-align:center;
-      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
-    }
-
-    .token-box strong{
-      display:block;
-      font-size:28px;
-      margin-top:8px;
-      color:#fff;
-    }
-
-    .risk-table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:10px;
-      overflow:hidden;
-      border-radius:18px;
-      border:1px solid var(--line);
-    }
-
-    .risk-table th,
-    .risk-table td{
-      padding:14px 12px;
-      text-align:left;
-      border-bottom:1px solid var(--line);
-      font-size:14px;
-      line-height:1.6;
-    }
-
-    .risk-table th{
-      color:var(--cyan);
-      background:rgba(93,230,255,.06);
-      text-transform:uppercase;
-      letter-spacing:.08em;
-      font-size:12px;
-    }
-
-    .risk-ok{color:var(--green); font-weight:700}
-    .risk-warn{color:#ffcf70; font-weight:700}
-
     .footer{
-      padding:8px 0 36px;
-      color:var(--muted);
-      text-align:center;
-      font-size:13px;
+      padding:34px 0 54px;
+      border-top:1px solid rgba(255,255,255,.06);
+      margin-top:90px;
     }
 
-    @media (max-width: 980px){
-      .toc{grid-template-columns:repeat(2,1fr)}
-      .grid-2{grid-template-columns:1fr}
-      .roadmap{grid-template-columns:1fr}
-      .tokenomics{grid-template-columns:repeat(2,1fr)}
+    .footer-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
     }
 
-    @media (max-width: 640px){
-      .wrap{width:min(var(--max), calc(100% - 18px))}
-      .hero-card,.section{padding:20px 16px}
-      .toc{grid-template-columns:1fr}
-      .section-num{min-width:54px;height:54px;font-size:20px}
-      .tokenomics{grid-template-columns:1fr}
-      pre{font-size:12px}
+    .footer-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      color:#c7d5f2;
+      font-size:14px;
+      font-weight:700;
     }
 
-    @media print{
-      body{background:#fff;color:#111}
-      body::before{display:none}
-      .hero,.toc{display:none}
-      .section{
-        break-inside:avoid;
-        page-break-inside:avoid;
-        background:#fff;
-        color:#111;
-        border:1px solid #ccc;
-        box-shadow:none;
-      }
-      .section *{color:#111 !important}
-      .proof,.mini,.phase,.token-box{background:#fff !important}
-      .footer{color:#333}
+    @media (max-width: 1180px){
+      .hero-grid{grid-template-columns:1fr}
+      .whitepaper-nav{grid-template-columns:1fr 1fr}
+      .phase-grid{grid-template-columns:1fr}
+      .tokenomics-grid{grid-template-columns:repeat(2,1fr)}
+    }
+
+    @media (max-width: 760px){
+      .nav{flex-wrap:wrap;justify-content:center;padding:14px 0}
+      .nav-links{justify-content:center}
+      .hero-copy h1{font-size:48px}
+      .whitepaper-nav{grid-template-columns:1fr}
+      .tokenomics-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header class="hero">
-      <div class="hero-card">
-        <div class="eyebrow">AXION Whitepaper • HTML Edition</div>
-        <h1>AXION Whitepaper</h1>
-        <p class="subtitle">Code-Verified • Expanded • Single-File HTML Document</p>
-        <div class="meta">
-          <div class="meta-chip">Protocol: AXION Token</div>
-          <div class="meta-chip">Network: BNB Smart Chain</div>
-          <div class="meta-chip">Model: Minimal ERC-20</div>
-          <div class="meta-chip">Version: Final Draft</div>
+  <div class="nav-wrap">
+    <nav class="nav">
+      <a class="brand" href="#home">
+        <div class="brand-mark">
+          <img src="https://raw.githubusercontent.com/axionteam645/axion-dashboard/main/axion-logo.png" alt="AXION Logo">
         </div>
-      </div>
-    </header>
+        <div class="brand-text">
+          <strong>AXION</strong>
+          <small>INTELLIGENT LAYER FOR DEFI</small>
+        </div>
+      </a>
 
-    <nav class="toc">
-      <a href="#s1">1. Executive Summary</a>
-      <a href="#s2">2. System Architecture</a>
-      <a href="#s3">3. Smart Contract Architecture</a>
-      <a href="#s4">4. Transfer Mechanism</a>
-      <a href="#s5">5. Allowance & Delegation</a>
-      <a href="#s6">6. Tokenomics Structure</a>
-      <a href="#s7">7. Security Framework</a>
-      <a href="#s8">8. AI Intelligence Layer</a>
-      <a href="#s9">9. Audit & Risk Analysis</a>
-      <a href="#s10">10. Decentralization Model</a>
-      <a href="#s11">11. Roadmap</a>
-      <a href="#s12">12. Risk Disclosure</a>
-      <a href="#s13">13. Final Conclusion</a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#paper">Whitepaper</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#security">Security</a>
+      </div>
+
+      <a class="btn" href="#paper">Open Whitepaper</a>
     </nav>
+  </div>
 
-    <section class="section" id="s1">
-      <div class="section-head">
-        <div class="section-num">01</div>
-        <div>
-          <h2>Executive Summary</h2>
-          <p>Code-verified overview of AXION as a minimal, fixed-supply, control-free ERC-20 token deployed on BNB Smart Chain.</p>
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">Official Whitepaper Layout</div>
+            <h1 class="gradient-title">AXION Whitepaper</h1>
+            <div class="sub">Code-Verified • Premium Product Style</div>
+            <p>
+              This version of the AXION whitepaper is styled according to the official AXION page design language, using the same premium dark interface, gradient headline treatment, card-based content system, and institutional product presentation.
+            </p>
+            <div class="hero-actions">
+              <a class="btn" href="#paper">Read Sections</a>
+              <a class="btn" style="background:rgba(255,255,255,.05); color:#fff; border:1px solid rgba(255,255,255,.08); box-shadow:none;" href="#roadmap">Roadmap</a>
+            </div>
+          </div>
+
+          <div class="hero-side-stack">
+            <article class="card">
+              <div class="card-inner">
+                <div class="tag">Whitepaper Style System</div>
+                <div class="title-row">
+                  <div class="icon-badge">AX</div>
+                  <h3>Premium AXION UI</h3>
+                </div>
+                <p>
+                  The layout mirrors the official AXION product page through dark cosmic surfaces, luminous accent gradients, structured cards, section headers, and a clear institutional presentation style.
+                </p>
+                <div class="mini-card">
+                  <strong>Design Language</strong>
+                  <p>Inter typography, premium product framing, soft neon gradients, and modular whitepaper cards.</p>
+                </div>
+                <div class="mini-card">
+                  <strong>Content Flow</strong>
+                  <p>Each section is separated into structured blocks so the whitepaper feels native to the AXION brand ecosystem.</p>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
+    </section>
 
-      <p class="text">AXION is a <strong>minimal ERC-20 token implementation</strong> deployed on BNB Smart Chain, designed with a fixed supply and a simplified, deterministic execution model.</p>
-      <p class="text">The contract intentionally limits its functionality to core ERC-20 operations, avoiding additional modules, dynamic parameters, or administrative control mechanisms.</p>
-
-      <h3 class="sub">1.1 Fixed Supply Model</h3>
-      <p class="text">AXION operates with a fixed total supply, defined at deployment and not subject to change.</p>
-      <div class="proof">
-        <div class="proof-head">
-          <div class="proof-title">Code Proof</div>
+    <section class="section" id="paper">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Whitepaper Flow</div>
+            <h2><span class="gradient-title">Whitepaper sections.</span></h2>
+          </div>
         </div>
-        <pre>uint256 public constant MAX_SUPPLY = 1_000_000_000 * 10**18;
+
+        <div class="whitepaper-nav">
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">1</div><strong>Executive Summary</strong></div><p>Minimal ERC-20 overview, fixed supply, deterministic execution, and absence of admin control.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">2</div><strong>System Architecture</strong></div><p>Direct mapping-based storage model, atomic execution, and event-based transparency.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">3</div><strong>Smart Contract Architecture</strong></div><p>Monolithic, immutable contract structure with no proxy pattern and no upgrade path.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">4</div><strong>Transfer Mechanism</strong></div><p>Deterministic, fee-free, permissionless balance transfer execution.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">5</div><strong>Allowance & Delegation</strong></div><p>Standard ERC-20 delegated spending with explicit approval and strict allowance reduction.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">6</div><strong>Tokenomics Structure</strong></div><p>Fixed supply with off-chain allocation framework and transparent external distribution model.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">7</div><strong>Security Framework</strong></div><p>Security through simplicity, no minting, no admin logic, no external calls, no upgradeability.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">8</div><strong>AI Intelligence Layer</strong></div><p>Off-chain analytical system designed for transparency and decision support without contract interaction.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">9</div><strong>Audit & Risk Analysis</strong></div><p>Low-complexity risk profile with explicit disclosure of off-chain distribution and liquidity risk.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">10</div><strong>Decentralization Model</strong></div><p>Contract-level decentralization with ecosystem-level decentralization evolving through participation.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">11</div><strong>Roadmap</strong></div><p>Six growth phases from foundation to AI integration and long-term AXION network vision.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">12</div><strong>Risk Disclosure</strong></div><p>Transparent statement of market, liquidity, distribution, and off-chain execution risks.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">13</div><strong>Final Conclusion</strong></div><p>Trust-minimized token architecture shaped by immutable code and transparent ecosystem execution.</p></div>
+        </div>
+
+        <!-- 1 -->
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 01</div>
+            <div class="title-row">
+              <div class="icon-badge">1</div>
+              <h3>Executive Summary</h3>
+            </div>
+            <div class="content-block">
+              <h4>1.1 Core Overview</h4>
+              <p>AXION is a minimal ERC-20 token implementation deployed on BNB Smart Chain, designed with a fixed supply and a simplified, deterministic execution model.</p>
+              <p>The contract intentionally limits its functionality to core ERC-20 operations, avoiding additional modules, dynamic parameters, or administrative control mechanisms.</p>
+            </div>
+            <div class="content-block">
+              <h4>1.2 Fixed Supply Model</h4>
+              <p>AXION operates with a fixed total supply, defined at deployment and not subject to change.</p>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>uint256 public constant MAX_SUPPLY = 1_000_000_000 * 10**18;
 uint256 public totalSupply = MAX_SUPPLY;</pre>
-      </div>
-      <div class="grid-2">
-        <div class="mini">
-          <h4>Technical Interpretation</h4>
-          <ul class="list">
-            <li><code>MAX_SUPPLY</code> is defined as a constant value</li>
-            <li><code>totalSupply</code> is initialized once</li>
-            <li>No function exists that modifies <code>totalSupply</code></li>
-          </ul>
-        </div>
-        <div class="mini">
-          <h4>Summary</h4>
-          <p class="text">The supply model is static and does not expose inflation, emission, or post-deployment supply expansion paths.</p>
-        </div>
-      </div>
-
-      <h3 class="sub">1.2 Single Genesis Distribution</h3>
-      <p class="text">All tokens are assigned at deployment through a single initialization event.</p>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>constructor() {
+              </div>
+            </div>
+            <div class="content-block">
+              <h4>1.3 Single Genesis Distribution</h4>
+              <p>All tokens are assigned at deployment through a single initialization event.</p>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>constructor() {
     balanceOf[msg.sender] = MAX_SUPPLY;
     emit Transfer(address(0), msg.sender, MAX_SUPPLY);
 }</pre>
-      </div>
-      <ul class="list">
-        <li>Constructor executes only once</li>
-        <li>Entire supply is transferred from zero address</li>
-        <li>Represents the initial distribution of all tokens</li>
-      </ul>
+              </div>
+            </div>
+            <div class="quote">AXION is a fixed-supply, control-free ERC-20 token, where all behavior is fully defined by immutable smart contract logic and can be verified directly on-chain.</div>
+          </div>
+        </article>
 
-      <h3 class="sub">1.3 Standard ERC-20 Functionality</h3>
-      <p class="text">The contract supports only standard ERC-20 operations.</p>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>function transfer(address to, uint256 amount) external returns (bool)
-function approve(address spender, uint256 amount) external returns (bool)
-function transferFrom(address from, address to, uint256 amount) external returns (bool)</pre>
-      </div>
-      <ul class="list">
-        <li>Enables token transfers between users</li>
-        <li>Allows approval-based delegated spending</li>
-        <li>Maintains compatibility with wallets, exchanges, and DeFi protocols</li>
-      </ul>
-
-      <h3 class="sub">1.4 Deterministic Transfer Logic</h3>
-      <p class="text">All token transfers are executed through direct balance updates without additional logic layers.</p>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>function _transfer(address from, address to, uint256 amount) internal {
-    require(from != address(0), "Invalid sender");
-    require(to != address(0), "Invalid recipient");
-    require(balanceOf[from] >= amount, "Insufficient balance");
-
-    balanceOf[from] -= amount;
-    balanceOf[to] += amount;
-
-    emit Transfer(from, to, amount);
-}</pre>
-      </div>
-      <ul class="list">
-        <li>Transfers update balances directly</li>
-        <li>No fees or deductions are applied</li>
-        <li>Execution is linear and predictable</li>
-      </ul>
-
-      <h3 class="sub">1.5 Absence of Control Mechanisms</h3>
-      <p class="text">The contract does not include administrative or privileged control logic.</p>
-      <div class="grid-2">
-        <div class="mini">
-          <h4>Verified Absence</h4>
-          <ul class="list">
-            <li>No <code>owner</code> variable</li>
-            <li>No <code>onlyOwner</code> modifier</li>
-            <li>No administrative functions</li>
-          </ul>
-        </div>
-        <div class="mini">
-          <h4>Technical Meaning</h4>
-          <ul class="list">
-            <li>No entity can modify contract behavior</li>
-            <li>No ability to pause or restrict transfers</li>
-            <li>No governance or upgrade system exists</li>
-          </ul>
-        </div>
-      </div>
-
-      <h3 class="sub">1.6 Allowance-Based Delegation</h3>
-      <p class="text">The contract implements standard allowance logic for delegated transfers.</p>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>uint256 allowed = allowance[from][msg.sender];
-require(allowed >= amount);
-
-allowance[from][msg.sender] = allowed - amount;</pre>
-      </div>
-      <ul class="list">
-        <li>Delegated transfers require prior approval</li>
-        <li>Allowance is reduced after use</li>
-        <li>Prevents overspending</li>
-      </ul>
-
-      <div class="quote">AXION is a fixed-supply, control-free ERC-20 token, where all behavior is fully defined by immutable smart contract logic and can be verified directly on-chain.</div>
-    </section>
-
-    <section class="section" id="s2">
-      <div class="section-head">
-        <div class="section-num">02</div>
-        <div>
-          <h2>System Architecture</h2>
-          <p>Direct on-chain state architecture built around transparent mappings, deterministic execution, and event-based traceability.</p>
-        </div>
-      </div>
-
-      <p class="text">AXION utilizes a <strong>direct on-chain state architecture</strong>, where all token data is stored and managed through deterministic storage mappings defined within the smart contract.</p>
-      <p class="text">The system avoids complex data structures, external dependencies, and modular extensions, resulting in a <strong>simple, transparent, and fully auditable state model</strong>.</p>
-
-      <h3 class="sub">2.1 On-Chain State Model</h3>
-      <p class="text">The AXION contract maintains its entire state using two primary mappings: <code>balanceOf</code> for token ownership and <code>allowance</code> for delegated spending permissions.</p>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>mapping(address => uint256) public balanceOf;
+        <!-- 2 -->
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 02</div>
+            <div class="title-row">
+              <div class="icon-badge">2</div>
+              <h3>System Architecture</h3>
+            </div>
+            <div class="content-block">
+              <h4>2.1 On-Chain State Model</h4>
+              <p>AXION utilizes a direct on-chain state architecture, where all token data is stored and managed through deterministic storage mappings defined within the smart contract.</p>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>mapping(address => uint256) public balanceOf;
 mapping(address => mapping(address => uint256)) public allowance;</pre>
-      </div>
-      <ul class="list">
-        <li><code>balanceOf</code> stores the token balance of each address</li>
-        <li><code>allowance</code> defines how much a third party can spend on behalf of a token holder</li>
-        <li>Both mappings are stored directly on-chain</li>
-        <li>No external storage or off-chain dependency exists</li>
-      </ul>
-
-      <h3 class="sub">2.2 Execution Model</h3>
-      <p class="text">All state transitions in AXION are executed synchronously within the EVM, without any asynchronous operations or external contract interactions.</p>
-      <ul class="list">
-        <li>All functions execute atomically</li>
-        <li>State changes are applied instantly within a single transaction</li>
-        <li>If any condition fails, the entire transaction reverts</li>
-      </ul>
-      <p class="text">This guarantees that no partial state changes occur, no race conditions exist, and execution remains predictable under all conditions.</p>
-
-      <h3 class="sub">2.3 Event Layer (State Transparency)</h3>
-      <p class="text">The contract emits standard ERC-20 events to ensure full traceability of all token interactions.</p>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>event Transfer(address indexed from, address indexed to, uint256 value);
+              </div>
+            </div>
+            <div class="content-block">
+              <h4>2.2 Execution Model</h4>
+              <p>All state transitions in AXION are executed synchronously within the EVM, without any asynchronous operations or external contract interactions.</p>
+              <ul>
+                <li>All functions execute atomically</li>
+                <li>State changes are applied instantly within a single transaction</li>
+                <li>If any condition fails, the entire transaction reverts</li>
+              </ul>
+            </div>
+            <div class="content-block">
+              <h4>2.3 Event Layer</h4>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>event Transfer(address indexed from, address indexed to, uint256 value);
 event Approval(address indexed owner, address indexed spender, uint256 value);</pre>
-      </div>
-      <ul class="list">
-        <li><code>Transfer</code> event records all token movements</li>
-        <li><code>Approval</code> event records allowance updates</li>
-        <li>Events are indexed for efficient tracking</li>
-      </ul>
+              </div>
+            </div>
+          </div>
+        </article>
 
-      <h3 class="sub">2.4 Internal State Isolation</h3>
-      <p class="text">AXION does not interact with external contracts, oracles, or off-chain systems.</p>
-      <div class="mini">
-        <h4>Verified Behavior</h4>
-        <ul class="list">
-          <li>No external contract calls (<code>call</code>, <code>delegatecall</code>, etc.)</li>
-          <li>No oracle integrations</li>
-          <li>No dependency injection</li>
-        </ul>
-      </div>
-
-      <h3 class="sub">2.5 Deterministic Data Flow</h3>
-      <p class="text">All data flows within AXION follow a strictly defined path: input → validation → state update → event emission.</p>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Example Flow</div></div>
-        <pre>function transfer(address to, uint256 amount) external returns (bool) {
-    _transfer(msg.sender, to, amount);
-    return true;
-}</pre>
-      </div>
-
-      <h3 class="sub">2.6 Absence of Dynamic State Logic</h3>
-      <ul class="list">
-        <li>No dynamic parameters</li>
-        <li>No adjustable variables</li>
-        <li>No governance-based state changes</li>
-      </ul>
-
-      <div class="quote">AXION operates on a fully on-chain, deterministic state architecture, where all balances, permissions, and interactions are managed through immutable smart contract storage and executed without external dependencies.</div>
-    </section>
-
-    <section class="section" id="s3">
-      <div class="section-head">
-        <div class="section-num">03</div>
-        <div>
-          <h2>Smart Contract Architecture</h2>
-          <p>Monolithic, immutable contract structure with no upgrade path, no proxy pattern, and no privileged control layer.</p>
-        </div>
-      </div>
-
-      <p class="text">AXION is implemented as a <strong>single, self-contained ERC-20 smart contract</strong>, where all token logic is defined at deployment and remains immutable throughout its lifetime.</p>
-      <p class="text">The contract follows a <strong>minimal and monolithic architecture</strong>, eliminating upgrade mechanisms, modular extensions, and privileged control layers.</p>
-
-      <h3 class="sub">3.1 Contract Structure</h3>
-      <p class="text">The AXION contract contains only the essential components required for ERC-20 functionality.</p>
-      <ul class="list">
-        <li>Token metadata (name, symbol, decimals)</li>
-        <li>Supply definition</li>
-        <li>Balance storage</li>
-        <li>Allowance storage</li>
-        <li>Transfer and approval logic</li>
-        <li>Event emission layer</li>
-      </ul>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>string public constant name = "AXION Token";
+        <!-- 3 -->
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 03</div>
+            <div class="title-row">
+              <div class="icon-badge">3</div>
+              <h3>Smart Contract Architecture</h3>
+            </div>
+            <div class="content-block">
+              <h4>3.1 Contract Structure</h4>
+              <p>AXION is implemented as a single, self-contained ERC-20 smart contract, where all token logic is defined at deployment and remains immutable throughout its lifetime.</p>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>string public constant name = "AXION Token";
 string public constant symbol = "AX";
 uint8 public constant decimals = 18;</pre>
-      </div>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Supply Definition</div></div>
-        <pre>uint256 public constant MAX_SUPPLY = 1_000_000_000 * 10**18;
-uint256 public totalSupply = MAX_SUPPLY;</pre>
-      </div>
-
-      <h3 class="sub">3.2 Initialization Model</h3>
-      <p class="text">The contract initializes its full state within the constructor function.</p>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>constructor() {
+              </div>
+            </div>
+            <div class="content-block">
+              <h4>3.2 Initialization Model</h4>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>constructor() {
     balanceOf[msg.sender] = MAX_SUPPLY;
     emit Transfer(address(0), msg.sender, MAX_SUPPLY);
 }</pre>
-      </div>
-      <ul class="list">
-        <li>Constructor executes only once during deployment</li>
-        <li>Entire token supply is assigned to the deployer</li>
-        <li>The <code>Transfer</code> event from the zero address represents the genesis mint</li>
-      </ul>
+              </div>
+            </div>
+            <div class="content-block">
+              <h4>3.3 Structural Properties</h4>
+              <ul>
+                <li>No proxy contracts</li>
+                <li>No upgradeable patterns</li>
+                <li>No external modules</li>
+              </ul>
+            </div>
+          </div>
+        </article>
 
-      <h3 class="sub">3.3 Monolithic Architecture</h3>
-      <p class="text">AXION does not use proxy contracts, upgradeable patterns, or external modules.</p>
-      <ul class="list">
-        <li>All logic resides within a single contract</li>
-        <li>No delegation (<code>delegatecall</code>) is used</li>
-        <li>No separation between logic and storage</li>
-      </ul>
-
-      <h3 class="sub">3.4 Immutability of Logic</h3>
-      <p class="text">The contract does not include any functions that allow modification of its behavior after deployment.</p>
-      <ul class="list">
-        <li>No <code>set</code> functions</li>
-        <li>No admin-controlled parameters</li>
-        <li>No upgrade hooks</li>
-      </ul>
-
-      <h3 class="sub">3.5 Internal Function Design</h3>
-      <p class="text">The contract separates external interaction from internal execution logic.</p>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>function transfer(address to, uint256 amount) external returns (bool) {
+        <!-- 4 -->
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 04</div>
+            <div class="title-row">
+              <div class="icon-badge">4</div>
+              <h3>Transfer Mechanism</h3>
+            </div>
+            <div class="content-block">
+              <h4>4.1 Direct Transfer Flow</h4>
+              <p>AXION implements a direct and deterministic transfer mechanism, where token movements are executed through explicit balance updates without additional logic layers such as fees, taxes, or conditional restrictions.</p>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>function transfer(address to, uint256 amount) external returns (bool) {
     _transfer(msg.sender, to, amount);
     return true;
 }</pre>
-      </div>
-
-      <h3 class="sub">3.6 Absence of External Dependencies</h3>
-      <ul class="list">
-        <li>No external contract calls</li>
-        <li>No oracle integration</li>
-        <li>No dependency on third-party protocols</li>
-      </ul>
-
-      <h3 class="sub">3.7 Minimal Attack Surface</h3>
-      <ul class="list">
-        <li>No reentrancy points</li>
-        <li>No external calls</li>
-        <li>No dynamic logic</li>
-      </ul>
-
-      <div class="quote">AXION is built as a monolithic, immutable smart contract, where all logic is deployed once, fully self-contained, and permanently fixed without upgrade paths or external dependencies.</div>
-    </section>
-
-    <section class="section" id="s4">
-      <div class="section-head">
-        <div class="section-num">04</div>
-        <div>
-          <h2>Transfer Mechanism</h2>
-          <p>Direct, fee-free, permissionless transfer flow based on explicit balance updates and deterministic validation.</p>
-        </div>
-      </div>
-
-      <p class="text">AXION implements a <strong>direct and deterministic transfer mechanism</strong>, where token movements are executed through explicit balance updates without additional logic layers such as fees, taxes, or conditional restrictions.</p>
-      <p class="text">The transfer system is designed to ensure <strong>predictable execution, full transparency, and exact value movement</strong> between participants.</p>
-
-      <h3 class="sub">4.1 Transfer Entry Point</h3>
-      <p class="text">Token transfers are initiated through the external <code>transfer</code> function.</p>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>function transfer(address to, uint256 amount) external returns (bool) {
-    _transfer(msg.sender, to, amount);
-    return true;
-}</pre>
-      </div>
-      <ul class="list">
-        <li>The caller (<code>msg.sender</code>) is the token sender</li>
-        <li>The function delegates execution to the internal <code>_transfer</code> function</li>
-        <li>Returns <code>true</code> upon successful execution</li>
-      </ul>
-
-      <h3 class="sub">4.2 Internal Transfer Execution</h3>
-      <p class="text">All transfer logic is handled by a single internal function.</p>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>function _transfer(address from, address to, uint256 amount) internal {
+              </div>
+            </div>
+            <div class="content-block">
+              <h4>4.2 Internal Transfer Execution</h4>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>function _transfer(address from, address to, uint256 amount) internal {
     require(from != address(0), "Invalid sender");
     require(to != address(0), "Invalid recipient");
     require(balanceOf[from] >= amount, "Insufficient balance");
@@ -808,65 +835,25 @@ uint256 public totalSupply = MAX_SUPPLY;</pre>
 
     emit Transfer(from, to, amount);
 }</pre>
-      </div>
+              </div>
+            </div>
+          </div>
+        </article>
 
-      <h3 class="sub">4.3 Deterministic Value Transfer</h3>
-      <ul class="list">
-        <li>No fees are deducted</li>
-        <li>No percentage-based logic exists</li>
-        <li>No hidden calculations are applied</li>
-      </ul>
-      <p class="text">The transferred amount is always equal to the received amount. No slippage or internal redistribution occurs. Token movement is linear and predictable.</p>
-
-      <h3 class="sub">4.4 Absence of Transfer Restrictions</h3>
-      <ul class="list">
-        <li>No blacklist</li>
-        <li>No whitelist</li>
-        <li>No transfer limits</li>
-        <li>No cooldowns</li>
-        <li>No trading enable/disable logic</li>
-      </ul>
-
-      <h3 class="sub">4.5 Balance Integrity Enforcement</h3>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>require(balanceOf[from] >= amount, "Insufficient balance");</pre>
-      </div>
-      <p class="text">This prevents negative balances, ensures state consistency, and guarantees that all transfers are backed by existing tokens.</p>
-
-      <h3 class="sub">4.6 Event-Based Transparency</h3>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>emit Transfer(from, to, amount);</pre>
-      </div>
-
-      <h3 class="sub">4.7 Execution Simplicity and Security</h3>
-      <ul class="list">
-        <li>No loops</li>
-        <li>No external calls</li>
-        <li>No conditional branching beyond validation</li>
-      </ul>
-
-      <div class="quote">AXION’s transfer mechanism is a fully deterministic, fee-free, and permissionless system, where token movements are executed through direct state transitions without hidden logic or external dependencies.</div>
-    </section>
-
-    <section class="section" id="s5">
-      <div class="section-head">
-        <div class="section-num">05</div>
-        <div>
-          <h2>Allowance &amp; Delegation</h2>
-          <p>Standard ERC-20 delegation logic enabling controlled third-party token spending with explicit approval and deterministic allowance reduction.</p>
-        </div>
-      </div>
-
-      <p class="text">AXION implements a <strong>standard ERC-20 allowance model</strong>, enabling token holders to authorize third-party addresses to spend tokens on their behalf through a controlled and deterministic delegation mechanism.</p>
-      <p class="text">This system allows integration with decentralized exchanges, liquidity pools, and automated protocols while maintaining strict on-chain validation.</p>
-
-      <h3 class="sub">5.1 Approval Mechanism</h3>
-      <p class="text">Token holders can assign spending permissions using the <code>approve</code> function.</p>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>function approve(address spender, uint256 amount) external returns (bool) {
+        <!-- 5 -->
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 05</div>
+            <div class="title-row">
+              <div class="icon-badge">5</div>
+              <h3>Allowance & Delegation</h3>
+            </div>
+            <div class="content-block">
+              <h4>5.1 Approval Mechanism</h4>
+              <p>AXION implements a standard ERC-20 allowance model, enabling token holders to authorize third-party addresses to spend tokens on their behalf.</p>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>function approve(address spender, uint256 amount) external returns (bool) {
     require(spender != address(0), "Invalid spender");
 
     allowance[msg.sender][spender] = amount;
@@ -874,29 +861,13 @@ uint256 public totalSupply = MAX_SUPPLY;</pre>
 
     return true;
 }</pre>
-      </div>
-      <ul class="list">
-        <li>The caller (<code>msg.sender</code>) defines the allowance</li>
-        <li>The <code>spender</code> is authorized to use a specified amount</li>
-        <li>The allowance value is directly set and overwrites the previous value</li>
-        <li>An <code>Approval</code> event is emitted for transparency</li>
-      </ul>
-
-      <h3 class="sub">5.2 Allowance Storage Model</h3>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>mapping(address => mapping(address => uint256)) public allowance;</pre>
-      </div>
-      <ul class="list">
-        <li>First key: token owner</li>
-        <li>Second key: authorized spender</li>
-        <li>Value: maximum spendable amount</li>
-      </ul>
-
-      <h3 class="sub">5.3 Delegated Transfer Execution</h3>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>function transferFrom(address from, address to, uint256 amount) external returns (bool) {
+              </div>
+            </div>
+            <div class="content-block">
+              <h4>5.2 Delegated Transfer Execution</h4>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>function transferFrom(address from, address to, uint256 amount) external returns (bool) {
     uint256 allowed = allowance[from][msg.sender];
     require(allowed >= amount, "Allowance exceeded");
 
@@ -906,695 +877,300 @@ uint256 public totalSupply = MAX_SUPPLY;</pre>
     _transfer(from, to, amount);
     return true;
 }</pre>
-      </div>
+              </div>
+            </div>
+          </div>
+        </article>
 
-      <h3 class="sub">5.4 Spending Constraint Enforcement</h3>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>require(allowed >= amount, "Allowance exceeded");</pre>
-      </div>
-
-      <h3 class="sub">5.5 Deterministic Allowance Reduction</h3>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>allowance[from][msg.sender] = allowed - amount;</pre>
-      </div>
-
-      <h3 class="sub">5.6 Event-Based Delegation Tracking</h3>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>emit Approval(from, msg.sender, allowance[from][msg.sender]);</pre>
-      </div>
-
-      <h3 class="sub">5.7 Absence of Advanced Approval Mechanisms</h3>
-      <ul class="list">
-        <li>No <code>increaseAllowance</code> function</li>
-        <li>No <code>decreaseAllowance</code> function</li>
-        <li>No permit-based approvals (EIP-2612)</li>
-      </ul>
-
-      <h3 class="sub">5.8 Security Considerations</h3>
-      <p class="text">The allowance system follows the standard ERC-20 model without additional protections. Approvals overwrite previous values, users must manually reset allowances if needed, and no built-in mitigation exists for approval race conditions.</p>
-
-      <div class="quote">AXION’s allowance mechanism provides a standard, deterministic, and fully on-chain delegation system, where all third-party spending permissions are explicitly defined, strictly enforced, and transparently tracked.</div>
-    </section>
-
-    <section class="section" id="s6">
-      <div class="section-head">
-        <div class="section-num">06</div>
-        <div>
-          <h2>Tokenomics Structure</h2>
-          <p>Fixed supply model enforced on-chain, with allocation and distribution handled externally as an off-chain framework.</p>
-        </div>
-      </div>
-
-      <p class="text">AXION operates with a <strong>fixed total supply model</strong>, where all tokens are created at deployment and no additional supply can be introduced under any circumstances.</p>
-      <p class="text">Unlike many token systems that embed inflation, emission schedules, or dynamic token distribution logic within the smart contract, AXION maintains a <strong>static supply architecture</strong>, with all distribution handled externally.</p>
-
-      <h3 class="sub">6.1 Total Supply Definition</h3>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>uint256 public constant MAX_SUPPLY = 1_000_000_000 * 10**18;
+        <!-- 6 -->
+        <article class="card content-card" id="tokenomics">
+          <div class="card-inner">
+            <div class="tag">Section 06</div>
+            <div class="title-row">
+              <div class="icon-badge">6</div>
+              <h3>Tokenomics Structure</h3>
+            </div>
+            <div class="content-block">
+              <h4>6.1 Fixed Supply Model</h4>
+              <p>AXION operates with a fixed total supply model, where all tokens are created at deployment and no additional supply can be introduced under any circumstances.</p>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>uint256 public constant MAX_SUPPLY = 1_000_000_000 * 10**18;
 uint256 public totalSupply = MAX_SUPPLY;</pre>
-      </div>
-      <ul class="list">
-        <li><code>MAX_SUPPLY</code> is a compile-time constant</li>
-        <li><code>totalSupply</code> is initialized once</li>
-        <li>No function exists that can modify total supply</li>
-      </ul>
+              </div>
+            </div>
+            <div class="content-block">
+              <h4>6.2 Allocation Framework</h4>
+              <p>This allocation model is declared as an off-chain framework and is not enforced by the contract.</p>
+              <div class="tokenomics-grid">
+                <div class="token-box"><span>Fund</span><strong>25%</strong></div>
+                <div class="token-box"><span>Liquidity</span><strong>25%</strong></div>
+                <div class="token-box"><span>Marketing</span><strong>20%</strong></div>
+                <div class="token-box"><span>CEX Listings</span><strong>20%</strong></div>
+                <div class="token-box"><span>Team</span><strong>10%</strong></div>
+              </div>
+            </div>
+            <div class="content-block">
+              <h4>6.3 Distribution Reality</h4>
+              <p>All tokens are assigned to the deployer at genesis. Distribution, vesting, and liquidity management are handled externally rather than enforced at contract level.</p>
+            </div>
+          </div>
+        </article>
 
-      <h3 class="sub">6.2 Supply Initialization and Distribution Source</h3>
-      <p class="text">All tokens are assigned to a single address during deployment.</p>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>constructor() {
-    balanceOf[msg.sender] = MAX_SUPPLY;
-    emit Transfer(address(0), msg.sender, MAX_SUPPLY);
-}</pre>
-      </div>
-      <ul class="list">
-        <li>Entire supply is transferred to the deployer</li>
-        <li>No pre-defined allocation exists inside the contract</li>
-        <li>Distribution originates from a single genesis wallet</li>
-      </ul>
-
-      <h3 class="sub">6.3 Off-Chain Distribution Model</h3>
-      <p class="text">The AXION contract does not enforce token distribution logic such as allocations, vesting, or locking mechanisms.</p>
-      <ul class="list">
-        <li>No allocation mapping</li>
-        <li>No vesting schedules</li>
-        <li>No time-based release logic</li>
-        <li>No liquidity locking mechanism</li>
-      </ul>
-
-      <h3 class="sub">6.4 Token Allocation Framework (Off-Chain Declaration)</h3>
-      <p class="text">The following allocation structure represents the intended distribution model of the AXION ecosystem:</p>
-      <div class="tokenomics">
-        <div class="token-box">Fund<strong>25%</strong></div>
-        <div class="token-box">Liquidity<strong>25%</strong></div>
-        <div class="token-box">Marketing<strong>20%</strong></div>
-        <div class="token-box">CEX Listings<strong>20%</strong></div>
-        <div class="token-box">Team<strong>10%</strong></div>
-      </div>
-      <p class="text"><strong>Important Clarification:</strong> This allocation is <strong>not enforced by the smart contract</strong>, but defined as an off-chain distribution framework.</p>
-
-      <h3 class="sub">6.5 Absence of Inflation and Emission</h3>
-      <ul class="list">
-        <li>No <code>mint()</code> function</li>
-        <li>No emission logic</li>
-        <li>No staking reward issuance</li>
-      </ul>
-
-      <h3 class="sub">6.6 No Burn or Deflation Mechanism</h3>
-      <ul class="list">
-        <li>No <code>burn()</code> function</li>
-        <li>No automatic burn logic</li>
-        <li>No fee-based burn mechanism</li>
-      </ul>
-
-      <h3 class="sub">6.7 Liquidity and Market Behavior</h3>
-      <p class="text">Liquidity is not managed by the contract and must be provided externally through decentralized exchanges.</p>
-
-      <h3 class="sub">6.8 Economic Transparency Model</h3>
-      <ul class="list">
-        <li>On-chain verification of balances</li>
-        <li>Public tracking of distribution wallets</li>
-        <li>Transparent liquidity management</li>
-      </ul>
-
-      <h3 class="sub">6.9 Risk Considerations</h3>
-      <ul class="list">
-        <li>Centralized initial supply distribution</li>
-        <li>No enforced vesting or lockups</li>
-        <li>Liquidity behavior depends on external management</li>
-      </ul>
-
-      <div class="quote">AXION’s tokenomics is defined by a fixed supply, zero-inflation model, where all distribution and allocation are managed externally, and the smart contract enforces only the integrity of token ownership and transfer logic.</div>
-    </section>
-
-    <section class="section" id="s7">
-      <div class="section-head">
-        <div class="section-num">07</div>
-        <div>
-          <h2>Security Framework</h2>
-          <p>Security-through-simplicity model based on removing admin control, minting, fees, external calls, and upgrade logic.</p>
-        </div>
-      </div>
-
-      <p class="text">AXION’s security model is based on <strong>minimalism, determinism, and elimination of unnecessary logic</strong>, reducing the overall attack surface and preventing common vulnerabilities found in complex token contracts.</p>
-      <p class="text">Rather than introducing layered protection mechanisms, AXION achieves security by <strong>removing controllable and exploitable components</strong>.</p>
-
-      <h3 class="sub">7.1 Absence of Minting Capability</h3>
-      <ul class="list">
-        <li>No <code>mint()</code> function</li>
-        <li>No supply increase mechanism</li>
-        <li>No inflation logic</li>
-      </ul>
-
-      <h3 class="sub">7.2 Absence of Administrative Control</h3>
-      <ul class="list">
-        <li>No <code>owner</code> variable</li>
-        <li>No <code>onlyOwner</code> modifier</li>
-        <li>No admin-controlled functions</li>
-      </ul>
-
-      <h3 class="sub">7.3 Transfer Integrity Enforcement</h3>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>require(from != address(0), "Invalid sender");
+        <!-- 7 -->
+        <article class="card content-card" id="security">
+          <div class="card-inner">
+            <div class="tag">Section 07</div>
+            <div class="title-row">
+              <div class="icon-badge">7</div>
+              <h3>Security Framework</h3>
+            </div>
+            <div class="content-block">
+              <h4>7.1 Core Security Model</h4>
+              <p>AXION’s security model is based on minimalism, determinism, and elimination of unnecessary logic, reducing the overall attack surface and preventing common vulnerabilities found in complex token contracts.</p>
+            </div>
+            <div class="content-block">
+              <h4>7.2 Verified Absence</h4>
+              <ul>
+                <li>No minting capability</li>
+                <li>No owner or privileged admin control</li>
+                <li>No fee or tax mechanism</li>
+                <li>No transfer restrictions</li>
+                <li>No upgradeability</li>
+              </ul>
+            </div>
+            <div class="content-block">
+              <h4>7.3 Transfer Integrity</h4>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>require(from != address(0), "Invalid sender");
 require(to != address(0), "Invalid recipient");
 require(balanceOf[from] >= amount, "Insufficient balance");</pre>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8 -->
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 08</div>
+            <div class="title-row">
+              <div class="icon-badge">8</div>
+              <h3>AI Intelligence Layer</h3>
+            </div>
+            <div class="content-block">
+              <h4>8.1 Off-Chain Analytical Framework</h4>
+              <p>AXION introduces an AI-driven analytical layer designed to enhance ecosystem transparency, data interpretation, and user decision-making, without interacting directly with the smart contract execution.</p>
+            </div>
+            <div class="content-block">
+              <h4>8.2 Architectural Separation</h4>
+              <ul>
+                <li>No AI logic exists within the contract</li>
+                <li>No oracle integration is present</li>
+                <li>No external data feeds influence contract execution</li>
+              </ul>
+            </div>
+            <div class="content-block">
+              <h4>8.3 Analytical Modules</h4>
+              <ul>
+                <li>Risk Analysis Engine</li>
+                <li>Whale Activity Tracking</li>
+                <li>Market Intelligence Module</li>
+                <li>Signal Generation Layer</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9 -->
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 09</div>
+            <div class="title-row">
+              <div class="icon-badge">9</div>
+              <h3>Audit & Risk Analysis</h3>
+            </div>
+            <div class="content-block">
+              <h4>9.1 Audit Perspective</h4>
+              <p>AXION’s smart contract has been evaluated based on code structure, execution behavior, and absence of common vulnerability patterns. The contract follows a minimal ERC-20 implementation, significantly reducing complexity and limiting the overall attack surface.</p>
+            </div>
+            <div class="content-block">
+              <h4>9.2 Key Findings</h4>
+              <ul>
+                <li>Inflation risk eliminated</li>
+                <li>Admin control risk eliminated</li>
+                <li>Fee manipulation eliminated</li>
+                <li>Reentrancy eliminated</li>
+                <li>Distribution risk remains off-chain</li>
+                <li>Liquidity risk remains external</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10 -->
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 10</div>
+            <div class="title-row">
+              <div class="icon-badge">10</div>
+              <h3>Decentralization Model</h3>
+            </div>
+            <div class="content-block">
+              <h4>10.1 Contract-Level Decentralization</h4>
+              <p>AXION’s decentralization model is defined by the absence of administrative control and immutable contract logic, combined with an externally managed token distribution and liquidity structure.</p>
+            </div>
+            <div class="content-block">
+              <h4>10.2 Verified Absence</h4>
+              <ul>
+                <li>No owner</li>
+                <li>No governance layer</li>
+                <li>No upgrade path</li>
+                <li>No transfer censorship</li>
+              </ul>
+            </div>
+            <div class="content-block">
+              <h4>10.3 Ecosystem-Level Reality</h4>
+              <p>The protocol achieves full decentralization at the smart contract level, while ecosystem-level decentralization evolves through distribution, liquidity, and market participation over time.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 11 -->
+        <article class="card content-card" id="roadmap">
+          <div class="card-inner">
+            <div class="tag">Section 11</div>
+            <div class="title-row">
+              <div class="icon-badge">11</div>
+              <h3>Roadmap</h3>
+            </div>
+            <div class="content-block">
+              <h4>11.1 Six Growth Phases</h4>
+              <p>AXION’s development strategy is structured into six progressive growth phases designed to guide the protocol from initial deployment to a fully autonomous and scalable ecosystem.</p>
+            </div>
+
+            <div class="phase-grid">
+              <div class="phase phase-cyan">
+                <strong>Phase 1 — Foundation</strong>
+                <ul>
+                  <li>Smart contract deployment</li>
+                  <li>Brand identity launch</li>
+                  <li>Community building</li>
+                  <li>Initial liquidity setup</li>
+                </ul>
+              </div>
+              <div class="phase phase-blue">
+                <strong>Phase 2 — Growth & Visibility</strong>
+                <ul>
+                  <li>Strategic marketing campaigns</li>
+                  <li>Early exchange listings</li>
+                  <li>Community expansion</li>
+                  <li>Ecosystem partnerships</li>
+                </ul>
+              </div>
+              <div class="phase phase-purple">
+                <strong>Phase 3 — Ecosystem Expansion</strong>
+                <ul>
+                  <li>Analytics dashboard launch</li>
+                  <li>DeFi tools integration</li>
+                  <li>Utility expansion</li>
+                  <li>Technical collaborations</li>
+                </ul>
+              </div>
+              <div class="phase phase-teal">
+                <strong>Phase 4 — AI Integration</strong>
+                <ul>
+                  <li>AI-powered analytics</li>
+                  <li>Automated DeFi tools</li>
+                  <li>AI partnerships</li>
+                  <li>Intelligent data layer</li>
+                </ul>
+              </div>
+              <div class="phase phase-green">
+                <strong>Phase 5 — Advanced Infrastructure</strong>
+                <ul>
+                  <li>Protocol optimization</li>
+                  <li>Cross-chain integrations</li>
+                  <li>Scalable architecture</li>
+                  <li>Expanded AI capabilities</li>
+                </ul>
+              </div>
+              <div class="phase phase-pink">
+                <strong>Phase 6 — AXION Network</strong>
+                <ul>
+                  <li>Proprietary network R&D</li>
+                  <li>Layer infrastructure design</li>
+                  <li>Independent ecosystem</li>
+                  <li>Full decentralization</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 12 -->
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 12</div>
+            <div class="title-row">
+              <div class="icon-badge">12</div>
+              <h3>Risk Disclosure</h3>
+            </div>
+            <div class="content-block">
+              <h4>12.1 Key Risk Areas</h4>
+              <p>Participation in the AXION ecosystem involves inherent risks associated with blockchain technology, token markets, and externally managed economic structures.</p>
+              <ul>
+                <li>Distribution risk</li>
+                <li>Liquidity risk</li>
+                <li>Market volatility</li>
+                <li>Off-chain execution risk</li>
+                <li>Regulatory uncertainty</li>
+              </ul>
+            </div>
+            <div class="quote">Users are fully responsible for their actions. AXION does not guarantee profits.</div>
+          </div>
+        </article>
+
+        <!-- 13 -->
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 13</div>
+            <div class="title-row">
+              <div class="icon-badge">13</div>
+              <h3>Final Conclusion</h3>
+            </div>
+            <div class="content-block">
+              <h4>13.1 Closing Statement</h4>
+              <p>AXION represents a minimal, transparent, and deterministic ERC-20 implementation, where all token behavior is defined by immutable smart contract logic and enforced without administrative control.</p>
+              <p>The protocol is intentionally designed to eliminate complexity, avoiding mechanisms such as minting, fees, governance, and upgradeability. By doing so, AXION reduces potential vulnerabilities and ensures that all interactions remain predictable, verifiable, and consistent over time.</p>
+            </div>
+            <div class="quote">AXION is a fixed-supply, control-free ERC-20 token, where all behavior is governed by immutable smart contract logic, and long-term value is shaped through transparent ecosystem participation.</div>
+          </div>
+        </article>
       </div>
-
-      <h3 class="sub">7.4 Absence of Fee and Tax Mechanisms</h3>
-      <ul class="list">
-        <li>No percentage deductions</li>
-        <li>No transfer tax</li>
-        <li>No redistribution mechanism</li>
-      </ul>
-
-      <h3 class="sub">7.5 Absence of Transfer Restrictions</h3>
-      <ul class="list">
-        <li>No blacklist</li>
-        <li>No whitelist</li>
-        <li>No transaction limits</li>
-        <li>No trading enable/disable logic</li>
-      </ul>
-
-      <h3 class="sub">7.6 Reentrancy Risk Analysis</h3>
-      <p class="text">The contract does not perform any external calls. No <code>call</code>, <code>delegatecall</code>, or external interaction is used. Reentrancy attacks are therefore not possible within the token logic itself.</p>
-
-      <h3 class="sub">7.7 Allowance Safety Enforcement</h3>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>uint256 allowed = allowance[from][msg.sender];
-require(allowed >= amount, "Allowance exceeded");
-
-allowance[from][msg.sender] = allowed - amount;</pre>
-      </div>
-
-      <h3 class="sub">7.8 Absence of Upgradeability</h3>
-      <ul class="list">
-        <li>No proxy pattern</li>
-        <li>No upgrade hooks</li>
-        <li>No logic replacement functionality</li>
-      </ul>
-
-      <h3 class="sub">7.9 Minimal Attack Surface</h3>
-      <ul class="list">
-        <li>No complex logic branches</li>
-        <li>No loops</li>
-        <li>No external dependencies</li>
-      </ul>
-
-      <h3 class="sub">7.10 Security Model Summary</h3>
-      <ul class="list">
-        <li>Fixed supply</li>
-        <li>No admin control</li>
-        <li>No external interaction</li>
-        <li>No dynamic logic</li>
-      </ul>
-
-      <div class="quote">AXION achieves security through deterministic design and elimination of control mechanisms, ensuring that all token behavior is fixed, transparent, and resistant to common smart contract vulnerabilities.</div>
     </section>
+  </main>
 
-    <section class="section" id="s8">
-      <div class="section-head">
-        <div class="section-num">08</div>
-        <div>
-          <h2>AI Intelligence Layer</h2>
-          <p>Off-chain analytical framework for transparency and decision support, architecturally isolated from immutable contract execution.</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-row">
+        <div class="brand">
+          <div class="brand-mark">
+            <img src="https://raw.githubusercontent.com/axionteam645/axion-dashboard/main/axion-logo.png" alt="AXION Logo">
+          </div>
+          <div class="brand-text">
+            <strong>AXION</strong>
+            <small>INTELLIGENT LAYER FOR DEFI</small>
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="https://axiondefi.com/" target="_blank" rel="noopener noreferrer">Website</a>
+          <a href="https://t.me/axiondefi" target="_blank" rel="noopener noreferrer">Telegram</a>
+          <a href="https://x.com/axiondefix" target="_blank" rel="noopener noreferrer">X / Twitter</a>
         </div>
       </div>
-
-      <p class="text">AXION introduces an <strong>AI-driven analytical layer</strong> designed to enhance ecosystem transparency, data interpretation, and user decision-making, without interacting directly with the smart contract execution.</p>
-      <p class="text">This layer operates <strong>entirely off-chain</strong>, ensuring that core token behavior remains unaffected, immutable, and fully secured by the smart contract.</p>
-
-      <h3 class="sub">8.1 Architectural Separation</h3>
-      <ul class="list">
-        <li>No AI logic exists within the contract</li>
-        <li>No oracle integration is present</li>
-        <li>No external data feeds influence contract execution</li>
-      </ul>
-
-      <h3 class="sub">8.2 Data Source Model</h3>
-      <p class="text">The AI system operates by analyzing publicly available blockchain data.</p>
-      <ul class="list">
-        <li>Transaction history</li>
-        <li>Wallet activity</li>
-        <li>Liquidity movements</li>
-        <li>Token distribution patterns</li>
-      </ul>
-
-      <h3 class="sub">8.3 Core Analytical Modules</h3>
-      <div class="grid-2">
-        <div class="mini">
-          <h4>Risk Analysis Engine</h4>
-          <p class="text">Evaluates wallet behavior patterns, identifies abnormal transaction flows, and detects potential market risks.</p>
-        </div>
-        <div class="mini">
-          <h4>Whale Activity Tracking</h4>
-          <p class="text">Monitors large holders, tracks high-volume transactions, and provides insight into potential market movements.</p>
-        </div>
-        <div class="mini">
-          <h4>Market Intelligence Module</h4>
-          <p class="text">Analyzes liquidity changes, observes trading patterns, and evaluates short-term market dynamics.</p>
-        </div>
-        <div class="mini">
-          <h4>Signal Generation Layer</h4>
-          <p class="text">Converts data into actionable insights and supports user decision-making.</p>
-        </div>
-      </div>
-
-      <h3 class="sub">8.4 Execution Independence</h3>
-      <ul class="list">
-        <li>No contract calls from AI systems</li>
-        <li>No automated trading logic inside the contract</li>
-        <li>No state changes triggered by AI</li>
-      </ul>
-
-      <h3 class="sub">8.5 Security Implications</h3>
-      <ul class="list">
-        <li>AI cannot alter balances</li>
-        <li>AI cannot affect transfers</li>
-        <li>AI cannot modify supply</li>
-      </ul>
-
-      <h3 class="sub">8.6 Strategic Role of AI Layer</h3>
-      <p class="text">The AI layer serves as an intelligence and transparency enhancement tool, not a control mechanism. Its purpose is to improve data visibility, assist users in understanding market conditions, and strengthen ecosystem insight.</p>
-
-      <h3 class="sub">8.7 Future Expansion Scope</h3>
-      <ul class="list">
-        <li>Advanced predictive analytics</li>
-        <li>Portfolio-level insights</li>
-        <li>DeFi data aggregation</li>
-        <li>Cross-market intelligence</li>
-      </ul>
-
-      <h3 class="sub">8.8 Alignment with Core Protocol</h3>
-      <p class="text">AXION maintains a strict boundary: <strong>Smart Contract = Execution</strong>, <strong>AI Layer = Analysis</strong>. This separation ensures contract integrity, analytical flexibility, and long-term scalability.</p>
-
-      <div class="quote">AXION’s AI layer is an off-chain analytical framework designed to enhance transparency and decision-making, while maintaining complete isolation from the immutable smart contract logic.</div>
-    </section>
-
-    <section class="section" id="s9">
-      <div class="section-head">
-        <div class="section-num">09</div>
-        <div>
-          <h2>Audit &amp; Risk Analysis</h2>
-          <p>Low-complexity contract assessment highlighting eliminated on-chain risks and remaining off-chain ecosystem risk factors.</p>
-        </div>
-      </div>
-
-      <p class="text">AXION’s smart contract has been evaluated based on <strong>code structure, execution behavior, and absence of common vulnerability patterns</strong>, with a focus on identifying both strengths and potential risks.</p>
-      <p class="text">The contract follows a <strong>minimal ERC-20 implementation</strong>, which significantly reduces complexity and limits the overall attack surface.</p>
-
-      <h3 class="sub">9.1 Code Simplicity and Audit Scope</h3>
-      <ul class="list">
-        <li>No complex logic branches</li>
-        <li>No loops or iterative structures</li>
-        <li>No external contract interactions</li>
-        <li>No upgrade mechanisms</li>
-      </ul>
-
-      <h3 class="sub">9.2 Supply Integrity Verification</h3>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>uint256 public constant MAX_SUPPLY = 1_000_000_000 * 10**18;
-uint256 public totalSupply = MAX_SUPPLY;</pre>
-      </div>
-      <ul class="list">
-        <li>Total supply is immutable</li>
-        <li>No functions exist that modify supply</li>
-        <li>Inflation-based risks are eliminated</li>
-      </ul>
-
-      <h3 class="sub">9.3 Distribution Model Risk</h3>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>constructor() {
-    balanceOf[msg.sender] = MAX_SUPPLY;
-}</pre>
-      </div>
-      <ul class="list">
-        <li>Initial supply is centralized</li>
-        <li>Distribution is not enforced by the contract</li>
-        <li>Allocation depends on off-chain execution</li>
-      </ul>
-
-      <h3 class="sub">9.4 Transfer Logic Verification</h3>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>require(balanceOf[from] >= amount);
-
-balanceOf[from] -= amount;
-balanceOf[to] += amount;</pre>
-      </div>
-      <ul class="list">
-        <li>No hidden deductions</li>
-        <li>No conditional execution paths</li>
-        <li>No fee or tax logic</li>
-      </ul>
-
-      <h3 class="sub">9.5 Allowance Safety Analysis</h3>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>uint256 allowed = allowance[from][msg.sender];
-require(allowed >= amount);
-
-allowance[from][msg.sender] = allowed - amount;</pre>
-      </div>
-
-      <h3 class="sub">9.6 Absence of Critical Risk Vectors</h3>
-      <ul class="list">
-        <li>No minting function</li>
-        <li>No admin control</li>
-        <li>No fee logic</li>
-        <li>No external calls</li>
-        <li>No upgradeability</li>
-      </ul>
-
-      <h3 class="sub">9.7 Reentrancy Risk Assessment</h3>
-      <p class="text">No <code>call</code>, <code>delegatecall</code>, or external interaction exists. All operations are internal. Reentrancy attacks are not possible within the token contract.</p>
-
-      <h3 class="sub">9.8 Smart Contract Limitations</h3>
-      <ul class="list">
-        <li>No built-in vesting or lock mechanism</li>
-        <li>No liquidity protection</li>
-        <li>No automated distribution enforcement</li>
-      </ul>
-
-      <h3 class="sub">9.9 Risk Summary Matrix</h3>
-      <table class="risk-table">
-        <thead>
-          <tr>
-            <th>Risk Category</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Inflation Risk</td><td class="risk-ok">Eliminated</td></tr>
-          <tr><td>Admin Control Risk</td><td class="risk-ok">Eliminated</td></tr>
-          <tr><td>Fee Manipulation</td><td class="risk-ok">Eliminated</td></tr>
-          <tr><td>Reentrancy</td><td class="risk-ok">Eliminated</td></tr>
-          <tr><td>Upgradeability Risk</td><td class="risk-ok">Eliminated</td></tr>
-          <tr><td>Distribution Risk</td><td class="risk-warn">Present (Off-chain)</td></tr>
-          <tr><td>Liquidity Risk</td><td class="risk-warn">External</td></tr>
-        </tbody>
-      </table>
-
-      <h3 class="sub">9.10 Audit Conclusion</h3>
-      <p class="text">AXION’s contract demonstrates a <strong>low-risk profile due to its minimal design</strong>, with security achieved through elimination of complex and exploitable features. However, certain risks remain outside the contract scope, particularly in token distribution, liquidity management, and market behavior.</p>
-
-      <div class="quote">AXION presents a minimal, transparent, and low-complexity smart contract architecture, where most traditional vulnerabilities are eliminated, while external factors such as distribution and liquidity remain the primary risk considerations.</div>
-    </section>
-
-    <section class="section" id="s10">
-      <div class="section-head">
-        <div class="section-num">10</div>
-        <div>
-          <h2>Decentralization Model</h2>
-          <p>Contract-level decentralization through immutable logic and absence of admin control, balanced against externally managed distribution and liquidity.</p>
-        </div>
-      </div>
-
-      <p class="text">AXION’s decentralization model is defined by the <strong>absence of administrative control and immutable contract logic</strong>, combined with an externally managed token distribution and liquidity structure.</p>
-      <p class="text">The protocol achieves <strong>contract-level decentralization</strong>, while acknowledging that full ecosystem decentralization depends on off-chain factors.</p>
-
-      <h3 class="sub">10.1 Contract-Level Decentralization</h3>
-      <ul class="list">
-        <li>No <code>owner</code> variable</li>
-        <li>No <code>onlyOwner</code> modifier</li>
-        <li>No admin functions</li>
-        <li>No governance layer</li>
-      </ul>
-
-      <h3 class="sub">10.2 Immutable Execution Environment</h3>
-      <ul class="list">
-        <li>No upgrade mechanism</li>
-        <li>No proxy architecture</li>
-        <li>No parameter modification functions</li>
-      </ul>
-
-      <h3 class="sub">10.3 Permissionless Interaction Model</h3>
-      <ul class="list">
-        <li>No blacklist</li>
-        <li>No whitelist</li>
-        <li>No transfer restrictions</li>
-        <li>No trading control logic</li>
-      </ul>
-
-      <h3 class="sub">10.4 Governance Absence</h3>
-      <ul class="list">
-        <li>No DAO</li>
-        <li>No voting mechanism</li>
-        <li>No proposal system</li>
-      </ul>
-
-      <h3 class="sub">10.5 Distribution Centralization Consideration</h3>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>constructor() {
-    balanceOf[msg.sender] = MAX_SUPPLY;
-}</pre>
-      </div>
-      <ul class="list">
-        <li>Entire supply is assigned to a single address</li>
-        <li>Distribution depends on external execution</li>
-        <li>No enforced decentralization of ownership</li>
-      </ul>
-
-      <h3 class="sub">10.6 Liquidity Control Model</h3>
-      <ul class="list">
-        <li>No liquidity locking mechanism</li>
-        <li>No automatic pool management</li>
-        <li>No price control logic</li>
-      </ul>
-
-      <h3 class="sub">10.7 Decentralization Dimensions</h3>
-      <ul class="list">
-        <li><strong>Smart Contract Layer:</strong> Fully decentralized (no control)</li>
-        <li><strong>Distribution Layer:</strong> Depends on external token distribution</li>
-        <li><strong>Market Layer:</strong> Depends on liquidity and trading activity</li>
-      </ul>
-
-      <h3 class="sub">10.8 Practical Implications</h3>
-      <ul class="list">
-        <li>Users operate in a trustless contract environment</li>
-        <li>Token ownership distribution determines real decentralization</li>
-        <li>Liquidity providers influence market behavior</li>
-      </ul>
-
-      <h3 class="sub">10.9 Transparency Requirement</h3>
-      <ul class="list">
-        <li>Public wallet tracking</li>
-        <li>Open liquidity visibility</li>
-        <li>Clear distribution communication</li>
-      </ul>
-
-      <div class="quote">AXION achieves full decentralization at the smart contract level, while ecosystem-level decentralization evolves through distribution, liquidity, and market participation over time.</div>
-    </section>
-
-    <section class="section" id="s11">
-      <div class="section-head">
-        <div class="section-num">11</div>
-        <div>
-          <h2>Roadmap</h2>
-          <p>Six growth phases defining AXION’s progression from contract launch to intelligent ecosystem expansion and long-term decentralization.</p>
-        </div>
-      </div>
-
-      <p class="text">AXION’s development strategy is structured into <strong>six progressive growth phases</strong>, designed to guide the protocol from initial deployment to a fully autonomous and scalable ecosystem.</p>
-      <p class="text">Each phase represents a <strong>distinct layer of expansion</strong>, combining technical development, market positioning, and ecosystem growth.</p>
-
-      <div class="roadmap">
-        <div class="phase">
-          <span class="tag">Phase 1</span>
-          <h3>Foundation</h3>
-          <ul>
-            <li>Smart contract deployment</li>
-            <li>Brand identity launch</li>
-            <li>Community building</li>
-            <li>Initial liquidity setup</li>
-          </ul>
-        </div>
-        <div class="phase">
-          <span class="tag">Phase 2</span>
-          <h3>Growth &amp; Visibility</h3>
-          <ul>
-            <li>Strategic marketing campaigns</li>
-            <li>Early exchange listings</li>
-            <li>Community expansion</li>
-            <li>Ecosystem partnerships</li>
-          </ul>
-        </div>
-        <div class="phase">
-          <span class="tag">Phase 3</span>
-          <h3>Ecosystem Expansion</h3>
-          <ul>
-            <li>Analytics dashboard launch</li>
-            <li>DeFi tools integration</li>
-            <li>Utility expansion</li>
-            <li>Technical collaborations</li>
-          </ul>
-        </div>
-        <div class="phase">
-          <span class="tag">Phase 4</span>
-          <h3>AI Integration</h3>
-          <ul>
-            <li>AI-powered analytics</li>
-            <li>Automated DeFi tools</li>
-            <li>AI partnerships</li>
-            <li>Intelligent data layer</li>
-          </ul>
-        </div>
-        <div class="phase">
-          <span class="tag">Phase 5</span>
-          <h3>Advanced Infrastructure</h3>
-          <ul>
-            <li>Protocol optimization</li>
-            <li>Cross-chain integrations</li>
-            <li>Scalable architecture</li>
-            <li>Expanded AI capabilities</li>
-          </ul>
-        </div>
-        <div class="phase">
-          <span class="tag">Phase 6</span>
-          <h3>AXION Network</h3>
-          <ul>
-            <li>Proprietary network R&amp;D</li>
-            <li>Layer infrastructure design</li>
-            <li>Independent ecosystem</li>
-            <li>Full decentralization</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="quote">AXION’s roadmap is designed as a progressive expansion model, evolving from a minimal ERC-20 token into a fully integrated, intelligent, and scalable financial ecosystem.</div>
-    </section>
-
-    <section class="section" id="s12">
-      <div class="section-head">
-        <div class="section-num">12</div>
-        <div>
-          <h2>Risk Disclosure</h2>
-          <p>Transparent disclosure of smart contract scope limitations, distribution risk, liquidity risk, market volatility, and off-chain operational dependencies.</p>
-        </div>
-      </div>
-
-      <p class="text">Participation in the AXION ecosystem involves inherent risks associated with blockchain technology, token markets, and externally managed economic structures.</p>
-      <p class="text">While the smart contract itself is designed to minimize technical vulnerabilities, <strong>certain risks exist outside the scope of on-chain logic</strong>.</p>
-
-      <h3 class="sub">12.1 Smart Contract Scope Limitation</h3>
-      <ul class="list">
-        <li>Token ownership</li>
-        <li>Balance transfers</li>
-        <li>Allowance-based delegation</li>
-      </ul>
-      <p class="text">The contract does not manage liquidity, does not enforce distribution, and does not control market behavior. Risks related to distribution and liquidity are therefore <strong>not mitigated by the contract itself</strong>.</p>
-
-      <h3 class="sub">12.2 Distribution Risk</h3>
-      <div class="proof">
-        <div class="proof-head"><div class="proof-title">Code Proof</div></div>
-        <pre>constructor() {
-    balanceOf[msg.sender] = MAX_SUPPLY;
-}</pre>
-      </div>
-      <ul class="list">
-        <li>Initial supply is centralized</li>
-        <li>Token distribution depends on external execution</li>
-        <li>No enforced vesting or lock mechanism exists</li>
-      </ul>
-
-      <h3 class="sub">12.3 Liquidity Risk</h3>
-      <ul class="list">
-        <li>No liquidity locking mechanism</li>
-        <li>No automated pool management</li>
-        <li>No price stabilization system</li>
-      </ul>
-      <p class="text">Liquidity providers can add or remove liquidity freely, market depth may fluctuate significantly, and price volatility may increase under low liquidity conditions.</p>
-
-      <h3 class="sub">12.4 Market Volatility</h3>
-      <ul class="list">
-        <li>Price fluctuations</li>
-        <li>Supply-demand imbalance</li>
-        <li>External market sentiment</li>
-      </ul>
-
-      <h3 class="sub">12.5 Absence of Built-In Protections</h3>
-      <ul class="list">
-        <li>No transaction limits</li>
-        <li>No anti-bot logic</li>
-        <li>No circuit breakers</li>
-      </ul>
-
-      <h3 class="sub">12.6 Off-Chain Dependency Risk</h3>
-      <ul class="list">
-        <li>Token allocation</li>
-        <li>Liquidity strategy</li>
-        <li>Marketing execution</li>
-        <li>AI analytics layer</li>
-      </ul>
-
-      <h3 class="sub">12.7 User Responsibility</h3>
-      <div class="quote">Users are fully responsible for their actions. AXION does not guarantee profits.</div>
-
-      <h3 class="sub">12.8 Regulatory and Compliance Considerations</h3>
-      <ul class="list">
-        <li>Jurisdictional differences</li>
-        <li>Legal classification of tokens</li>
-        <li>Evolving compliance frameworks</li>
-      </ul>
-
-      <h3 class="sub">12.9 Technical Limitations</h3>
-      <ul class="list">
-        <li>No automated tokenomics enforcement</li>
-        <li>No governance flexibility</li>
-        <li>No dynamic system upgrades</li>
-      </ul>
-
-      <div class="quote">AXION minimizes smart contract risk through simplicity and immutability, but users must understand that market behavior, distribution, and liquidity dynamics remain external risk factors.</div>
-    </section>
-
-    <section class="section" id="s13">
-      <div class="section-head">
-        <div class="section-num">13</div>
-        <div>
-          <h2>Final Conclusion</h2>
-          <p>Closing statement positioning AXION as a minimal, trust-minimized, fixed-supply digital asset layer governed by immutable logic.</p>
-        </div>
-      </div>
-
-      <p class="text">AXION represents a <strong>minimal, transparent, and deterministic ERC-20 implementation</strong>, where all token behavior is defined by immutable smart contract logic and enforced without administrative control.</p>
-      <p class="text">The protocol is intentionally designed to eliminate complexity, avoiding mechanisms such as minting, fees, governance, and upgradeability. By doing so, AXION reduces potential vulnerabilities and ensures that all interactions remain <strong>predictable, verifiable, and consistent over time</strong>.</p>
-
-      <h3 class="sub">13.1 Contract-Level Outcomes</h3>
-      <ul class="list">
-        <li>Fixed supply integrity</li>
-        <li>Permissionless transfers</li>
-        <li>Absence of privileged control</li>
-        <li>Deterministic execution</li>
-      </ul>
-
-      <h3 class="sub">13.2 Ecosystem-Level Reality</h3>
-      <p class="text">At the same time, AXION acknowledges that key aspects of the ecosystem—such as token distribution, liquidity management, and market dynamics—exist outside the scope of the contract and require <strong>transparent and responsible external execution</strong>.</p>
-
-      <h3 class="sub">13.3 Structural Summary</h3>
-      <p class="text">This dual structure creates a system where:</p>
-      <ul class="list">
-        <li><strong>Security is enforced by code</strong></li>
-        <li><strong>Flexibility is managed externally</strong></li>
-      </ul>
-
-      <h3 class="sub">13.4 Positioning</h3>
-      <p class="text">AXION is not positioned as a feature-heavy or complex DeFi protocol. Instead, it is structured as a <strong>clean and reliable digital asset layer</strong>, prioritizing clarity, auditability, and long-term stability.</p>
-
-      <div class="quote">AXION is a fixed-supply, control-free ERC-20 token, where all behavior is governed by immutable smart contract logic, and long-term value is shaped through transparent ecosystem participation.</div>
-    </section>
-
-    <div class="footer">
-      AXION Whitepaper HTML • Single-file document • Ready for direct use or export to PDF
     </div>
-  </div>
+  </footer>
 </body>
 </html>
