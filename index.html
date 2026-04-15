@@ -179,7 +179,7 @@
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.1fr .9fr;
+      grid-template-columns:1fr;
       gap:28px;
       align-items:start;
     }
@@ -221,13 +221,6 @@
       text-transform:uppercase;
       color:#c8d6f8;
       margin-bottom:18px;
-    }
-
-    .hero-copy p{
-      color:var(--muted);
-      line-height:1.85;
-      font-size:16px;
-      max-width:780px;
     }
 
     .hero-actions{
@@ -311,29 +304,6 @@
       color:var(--muted);
       line-height:1.75;
       font-size:15px;
-    }
-
-    .hero-side-stack{
-      display:grid;
-      gap:18px;
-    }
-
-    .hero-side-stack .card h3{
-      font-size:24px;
-    }
-
-    .hero-side-stack .mini-card{
-      padding:16px 18px;
-      border-radius:18px;
-      background:rgba(255,255,255,.035);
-      border:1px solid rgba(255,255,255,.08);
-      margin-top:12px;
-    }
-
-    .hero-side-stack .mini-card strong{
-      display:block;
-      font-size:15px;
-      margin-bottom:7px;
     }
 
     .section{
@@ -581,7 +551,6 @@
     }
 
     @media (max-width: 1180px){
-      .hero-grid{grid-template-columns:1fr}
       .whitepaper-nav{grid-template-columns:1fr 1fr}
       .phase-grid{grid-template-columns:1fr}
       .tokenomics-grid{grid-template-columns:repeat(2,1fr)}
@@ -629,36 +598,10 @@
             <div class="eyebrow">Official Whitepaper Layout</div>
             <h1 class="gradient-title">AXION Whitepaper</h1>
             <div class="sub">Code-Verified • Premium Product Style</div>
-            <p>
-              This version of the AXION whitepaper is styled according to the official AXION page design language, using the same premium dark interface, gradient headline treatment, card-based content system, and institutional product presentation.
-            </p>
             <div class="hero-actions">
               <a class="btn" href="#paper">Read Sections</a>
               <a class="btn" style="background:rgba(255,255,255,.05); color:#fff; border:1px solid rgba(255,255,255,.08); box-shadow:none;" href="#roadmap">Roadmap</a>
             </div>
-          </div>
-
-          <div class="hero-side-stack">
-            <article class="card">
-              <div class="card-inner">
-                <div class="tag">Whitepaper Style System</div>
-                <div class="title-row">
-                  <div class="icon-badge">AX</div>
-                  <h3>Premium AXION UI</h3>
-                </div>
-                <p>
-                  The layout mirrors the official AXION product page through dark cosmic surfaces, luminous accent gradients, structured cards, section headers, and a clear institutional presentation style.
-                </p>
-                <div class="mini-card">
-                  <strong>Design Language</strong>
-                  <p>Inter typography, premium product framing, soft neon gradients, and modular whitepaper cards.</p>
-                </div>
-                <div class="mini-card">
-                  <strong>Content Flow</strong>
-                  <p>Each section is separated into structured blocks so the whitepaper feels native to the AXION brand ecosystem.</p>
-                </div>
-              </div>
-            </article>
           </div>
         </div>
       </div>
@@ -689,7 +632,6 @@
           <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">13</div><strong>Final Conclusion</strong></div><p>Trust-minimized token architecture shaped by immutable code and transparent ecosystem execution.</p></div>
         </div>
 
-        <!-- 1 -->
         <article class="card content-card">
           <div class="card-inner">
             <div class="tag">Section 01</div>
@@ -726,7 +668,6 @@ uint256 public totalSupply = MAX_SUPPLY;</pre>
           </div>
         </article>
 
-        <!-- 2 -->
         <article class="card content-card">
           <div class="card-inner">
             <div class="tag">Section 02</div>
@@ -763,7 +704,6 @@ event Approval(address indexed owner, address indexed spender, uint256 value);</
           </div>
         </article>
 
-        <!-- 3 -->
         <article class="card content-card">
           <div class="card-inner">
             <div class="tag">Section 03</div>
@@ -802,7 +742,6 @@ uint8 public constant decimals = 18;</pre>
           </div>
         </article>
 
-        <!-- 4 -->
         <article class="card content-card">
           <div class="card-inner">
             <div class="tag">Section 04</div>
@@ -840,7 +779,6 @@ uint8 public constant decimals = 18;</pre>
           </div>
         </article>
 
-        <!-- 5 -->
         <article class="card content-card">
           <div class="card-inner">
             <div class="tag">Section 05</div>
@@ -882,7 +820,6 @@ uint8 public constant decimals = 18;</pre>
           </div>
         </article>
 
-        <!-- 6 -->
         <article class="card content-card" id="tokenomics">
           <div class="card-inner">
             <div class="tag">Section 06</div>
@@ -917,7 +854,6 @@ uint256 public totalSupply = MAX_SUPPLY;</pre>
           </div>
         </article>
 
-        <!-- 7 -->
         <article class="card content-card" id="security">
           <div class="card-inner">
             <div class="tag">Section 07</div>
@@ -951,7 +887,6 @@ require(balanceOf[from] >= amount, "Insufficient balance");</pre>
           </div>
         </article>
 
-        <!-- 8 -->
         <article class="card content-card">
           <div class="card-inner">
             <div class="tag">Section 08</div>
@@ -983,7 +918,6 @@ require(balanceOf[from] >= amount, "Insufficient balance");</pre>
           </div>
         </article>
 
-        <!-- 9 -->
         <article class="card content-card">
           <div class="card-inner">
             <div class="tag">Section 09</div>
@@ -1009,7 +943,6 @@ require(balanceOf[from] >= amount, "Insufficient balance");</pre>
           </div>
         </article>
 
-        <!-- 10 -->
         <article class="card content-card">
           <div class="card-inner">
             <div class="tag">Section 10</div>
@@ -1037,7 +970,6 @@ require(balanceOf[from] >= amount, "Insufficient balance");</pre>
           </div>
         </article>
 
-        <!-- 11 -->
         <article class="card content-card" id="roadmap">
           <div class="card-inner">
             <div class="tag">Section 11</div>
@@ -1109,7 +1041,6 @@ require(balanceOf[from] >= amount, "Insufficient balance");</pre>
           </div>
         </article>
 
-        <!-- 12 -->
         <article class="card content-card">
           <div class="card-inner">
             <div class="tag">Section 12</div>
@@ -1132,7 +1063,6 @@ require(balanceOf[from] >= amount, "Insufficient balance");</pre>
           </div>
         </article>
 
-        <!-- 13 -->
         <article class="card content-card">
           <div class="card-inner">
             <div class="tag">Section 13</div>
