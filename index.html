@@ -1,148 +1,1106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AXION Whitepaper</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AXION Whitepaper | Intelligent Layer for DeFi</title>
+  <meta
+    name="description"
+    content="AXION Whitepaper styled in the official AXION premium product design language."
+  />
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/axionteam645/axion-dashboard/main/axion-logo.png" />
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/axionteam645/axion-dashboard/main/axion-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#040814;
+      --text:#ecf3ff;
+      --muted:#99a8c7;
+      --cyan:#4ed8ff;
+      --blue:#5f8cff;
+      --purple:#a85cff;
+      --pink:#ff5cb8;
+      --gold:#ffc95c;
+      --green:#43f3b1;
+      --shadow:0 18px 60px rgba(0,0,0,.42);
+      --max:1280px;
+    }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:Inter;
-  background:#040814;
-  color:#fff;
-  overflow-x:hidden;
-}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Inter',sans-serif;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(78,216,255,.16), transparent 24%),
+        radial-gradient(circle at 80% 10%, rgba(168,92,255,.15), transparent 26%),
+        radial-gradient(circle at 50% 100%, rgba(255,92,184,.08), transparent 28%),
+        linear-gradient(180deg,#02050e 0%, #040814 36%, #060b1a 100%);
+      color:var(--text);
+      overflow-x:hidden;
+    }
 
-/* ===== NAV ===== */
-.nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:16px 20px;
-}
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(79,168,255,.18), transparent 18%),
+        radial-gradient(circle at 90% 12%, rgba(255,92,184,.12), transparent 15%),
+        radial-gradient(circle at 86% 88%, rgba(78,216,255,.08), transparent 20%);
+      z-index:-2;
+    }
 
-.nav-links{
-  display:flex;
-  gap:16px;
-}
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:radial-gradient(rgba(255,255,255,.65) .7px, transparent .7px);
+      background-size:38px 38px;
+      opacity:.08;
+      z-index:-1;
+    }
 
-/* ===== HERO ===== */
-.hero{
-  padding:60px 20px;
-}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{
+      width:min(calc(100% - 32px), var(--max));
+      margin-inline:auto;
+    }
 
-.hero h1{
-  font-size:42px;
-}
+    .nav-wrap{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(18px);
+      background:rgba(4,9,20,.66);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
 
-/* ===== GRID ===== */
-.whitepaper-nav{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-  padding:20px;
-}
+    .nav{
+      width:min(calc(100% - 32px), var(--max));
+      margin-inline:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      min-height:82px;
+    }
 
-/* ===== CARD ===== */
-.card{
-  padding:20px;
-  border-radius:16px;
-  background:rgba(255,255,255,0.05);
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
+      flex-shrink:0;
+    }
 
-/* ===== MOBILE FIX ===== */
-@media(max-width:1024px){
-  .whitepaper-nav{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
+    .brand-mark{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      overflow:hidden;
+      display:grid;
+      place-items:center;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.03)),
+        linear-gradient(135deg, var(--cyan), var(--blue), var(--purple), var(--pink), var(--gold));
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.08),
+        0 0 30px rgba(112,118,255,.18);
+    }
 
-@media(max-width:768px){
+    .brand-mark img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
 
-  /* NAV FIX */
-  .nav{
-    flex-direction:column;
-    gap:12px;
-    text-align:center;
-  }
+    .brand-text strong{
+      display:block;
+      font-size:18px;
+      letter-spacing:.08em;
+    }
 
-  .nav-links{
-    flex-wrap:wrap;
-    justify-content:center;
-  }
+    .brand-text small{
+      display:block;
+      color:#d3def8;
+      opacity:.9;
+      letter-spacing:.12em;
+      font-size:10px;
+      font-weight:700;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
 
-  /* HERO FIX */
-  .hero{
-    padding:40px 16px;
-  }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:16px;
+      flex:1;
+      flex-wrap:wrap;
+    }
 
-  .hero h1{
-    font-size:32px;
-    line-height:1.1;
-  }
+    .nav-links a{
+      font-size:12px;
+      font-weight:700;
+      color:#cbd8f7;
+      transition:.2s ease;
+      white-space:nowrap;
+    }
 
-  /* GRID FIX */
-  .whitepaper-nav{
-    grid-template-columns:1fr;
-    gap:14px;
-    padding:16px;
-  }
+    .nav-links a:hover{color:#fff}
 
-  /* CARD FIX */
-  .card{
-    padding:16px;
-  }
+    .btn{
+      appearance:none;
+      border:none;
+      cursor:pointer;
+      border-radius:999px;
+      padding:14px 22px;
+      font-size:14px;
+      font-weight:800;
+      font-family:inherit;
+      transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+      color:#09111f;
+      background:linear-gradient(90deg, #ffd84d, #ffc95c, #ffb347);
+      box-shadow:0 10px 26px rgba(255,201,92,.30);
+    }
 
-  /* TEXT FIX */
-  p{
-    font-size:14px;
-    line-height:1.6;
-  }
+    .btn:hover{transform:translateY(-2px) scale(1.025)}
 
-  /* BUTTON FULL WIDTH */
-  .btn{
-    width:100%;
-    text-align:center;
-  }
-}
+    .hero{
+      padding:86px 0 40px;
+    }
 
-/* EXTRA SMALL */
-@media(max-width:480px){
-  .hero h1{
-    font-size:26px;
-  }
-}
-</style>
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      background:rgba(255,255,255,.03);
+      color:#d8e3ff;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+    }
+
+    .gradient-title{
+      background:linear-gradient(90deg,#ffffff 0%, #9bddff 26%, #c4b1ff 58%, #ffcfe6 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero-copy h1{
+      margin:16px 0 18px;
+      font-size:clamp(44px, 7vw, 86px);
+      line-height:.96;
+      letter-spacing:-.06em;
+    }
+
+    .hero-copy .sub{
+      font-size:clamp(18px,2vw,24px);
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#c8d6f8;
+      margin-bottom:18px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:26px;
+    }
+
+    .card{
+      position:relative;
+      background:linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.025));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(140deg, rgba(78,216,255,.08), transparent 28%, transparent 68%, rgba(255,92,184,.08)),
+        radial-gradient(circle at 100% 100%, rgba(255,201,92,.08), transparent 22%);
+      pointer-events:none;
+    }
+
+    .card-inner{
+      position:relative;
+      padding:24px;
+      z-index:1;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      color:#e4edff;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .title-row{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:10px;
+    }
+
+    .icon-badge{
+      width:48px;
+      height:48px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, rgba(78,216,255,.14), rgba(168,92,255,.10));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 0 18px rgba(78,216,255,.12);
+      color:#dff3ff;
+      flex-shrink:0;
+      font-weight:900;
+      font-size:18px;
+    }
+
+    .card h3{
+      margin:0;
+      font-size:28px;
+      letter-spacing:-.03em;
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:15px;
+    }
+
+    .section{
+      padding:88px 0 0;
+      position:relative;
+    }
+
+    .section:last-of-type{
+      padding-bottom:100px;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:24px;
+      margin-bottom:28px;
+      flex-wrap:wrap;
+    }
+
+    .section-head h2{
+      margin:14px 0 0;
+      font-size:clamp(32px,4vw,60px);
+      line-height:1;
+      letter-spacing:-.04em;
+    }
+
+    .whitepaper-nav{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .whitepaper-link{
+      padding:22px;
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+      transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .whitepaper-link:hover{
+      transform:translateY(-4px);
+      border-color:rgba(255,255,255,.16);
+      box-shadow:0 20px 50px rgba(0,0,0,.42),0 0 28px rgba(78,216,255,.08),0 0 44px rgba(168,92,255,.08);
+    }
+
+    .whitepaper-link strong{
+      font-size:18px;
+      display:block;
+      margin:0;
+    }
+
+    .whitepaper-link p{
+      margin-top:10px;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:14px;
+    }
+
+    .content-card{
+      margin-top:18px;
+    }
+
+    .content-card .card-inner{
+      padding:28px;
+    }
+
+    .content-block{
+      padding:16px 18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.035);
+      border:1px solid rgba(255,255,255,.08);
+      margin-top:14px;
+    }
+
+    .content-block h4{
+      font-size:16px;
+      margin-bottom:10px;
+      color:#ffffff;
+      letter-spacing:-.02em;
+    }
+
+    .content-block p{
+      color:var(--muted);
+      line-height:1.85;
+      font-size:15px;
+      margin-bottom:10px;
+    }
+
+    .content-block p:last-child{margin-bottom:0}
+
+    .content-block ul{
+      padding-left:18px;
+      color:#d7e4ff;
+      line-height:1.85;
+      font-size:14px;
+    }
+
+    .content-block li{margin-bottom:6px}
+
+    .proof{
+      margin-top:14px;
+      padding:18px;
+      border-radius:18px;
+      background:rgba(5,10,20,.85);
+      border:1px solid rgba(255,255,255,.08);
+      overflow:auto;
+    }
+
+    .proof-title{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:12px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(67,243,177,.08);
+      border:1px solid rgba(67,243,177,.20);
+      color:#dffff2;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .proof code,
+    .proof pre{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      color:#dff8ff;
+      font-size:13px;
+      line-height:1.75;
+      white-space:pre-wrap;
+      word-break:break-word;
+      margin:0;
+    }
+
+    .phase-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+      margin-top:18px;
+    }
+
+    .phase{
+      padding:22px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.1);
+      background:rgba(255,255,255,.035);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .phase strong{
+      display:block;
+      font-size:17px;
+      margin-bottom:10px;
+      position:relative;
+      z-index:1;
+    }
+
+    .phase ul{
+      margin:0;
+      padding-left:18px;
+      color:#d3def7;
+      line-height:1.8;
+      font-size:14px;
+      position:relative;
+      z-index:1;
+    }
+
+    .phase.phase-cyan{box-shadow:0 0 30px rgba(78,216,255,.12);border-color:rgba(78,216,255,.24)}
+    .phase.phase-blue{box-shadow:0 0 30px rgba(95,140,255,.12);border-color:rgba(95,140,255,.24)}
+    .phase.phase-purple{box-shadow:0 0 30px rgba(168,92,255,.12);border-color:rgba(168,92,255,.24)}
+    .phase.phase-teal{box-shadow:0 0 30px rgba(67,243,177,.12);border-color:rgba(67,243,177,.22)}
+    .phase.phase-green{box-shadow:0 0 30px rgba(255,201,92,.12);border-color:rgba(255,201,92,.24)}
+    .phase.phase-pink{box-shadow:0 0 30px rgba(255,92,184,.12);border-color:rgba(255,92,184,.22)}
+
+    .tokenomics-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .token-box{
+      padding:18px 14px;
+      border-radius:20px;
+      text-align:center;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+
+    .token-box span{
+      display:block;
+      color:#c9d8ff;
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .token-box strong{
+      display:block;
+      margin-top:8px;
+      font-size:28px;
+      color:#fff;
+      letter-spacing:-.03em;
+    }
+
+    .quote{
+      margin-top:16px;
+      padding:16px 18px;
+      border-left:3px solid var(--cyan);
+      border-radius:0 18px 18px 0;
+      background:rgba(93,230,255,.06);
+      color:#eef8ff;
+      line-height:1.8;
+      font-style:italic;
+    }
+
+    .footer{
+      padding:34px 0 54px;
+      border-top:1px solid rgba(255,255,255,.06);
+      margin-top:90px;
+    }
+
+    .footer-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      color:#c7d5f2;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    @media (max-width: 1180px){
+      .whitepaper-nav{grid-template-columns:1fr 1fr}
+      .phase-grid{grid-template-columns:1fr}
+      .tokenomics-grid{grid-template-columns:repeat(2,1fr)}
+    }
+
+    @media (max-width: 760px){
+      .nav{flex-wrap:wrap;justify-content:center;padding:14px 0}
+      .nav-links{justify-content:center}
+      .hero-copy h1{font-size:48px}
+      .whitepaper-nav{grid-template-columns:1fr}
+      .tokenomics-grid{grid-template-columns:1fr}
+    }
+  </style>
 </head>
-
 <body>
+  <div class="nav-wrap">
+    <nav class="nav">
+      <a class="brand" href="https://axiondefi.com/" target="_blank" rel="noopener noreferrer">
+        <div class="brand-mark">
+          <img src="https://raw.githubusercontent.com/axionteam645/axion-dashboard/main/axion-logo.png" alt="AXION Logo">
+        </div>
+        <div class="brand-text">
+          <strong>AXION</strong>
+          <small>INTELLIGENT LAYER FOR DEFI</small>
+        </div>
+      </a>
 
-<div class="nav">
-  <div>AXION</div>
-  <div class="nav-links">
-    <a>Home</a>
-    <a>Whitepaper</a>
-    <a>Roadmap</a>
+      <div class="nav-links">
+        <a href="https://axiondefi.com/" target="_blank" rel="noopener noreferrer">Home</a>
+        <a href="#paper">Whitepaper</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#security">Security</a>
+      </div>
+
+      <a class="btn" href="https://app.axiondefi.com/" target="_blank" rel="noopener noreferrer">Go to AXION App</a>
+    </nav>
   </div>
-</div>
 
-<section class="hero">
-  <h1>AXION Whitepaper</h1>
-</section>
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">Official Whitepaper Layout</div>
+            <h1 class="gradient-title">AXION Whitepaper</h1>
+            <div class="sub">Code-Verified • Premium Product Style</div>
+            <div class="hero-actions">
+              <a class="btn" href="#paper">Read Sections</a>
+              <a class="btn" style="background:rgba(255,255,255,.05); color:#fff; border:1px solid rgba(255,255,255,.08); box-shadow:none;" href="#roadmap">Roadmap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="whitepaper-nav">
+    <section class="section" id="paper">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Whitepaper Flow</div>
+            <h2><span class="gradient-title">Whitepaper sections.</span></h2>
+          </div>
+        </div>
 
-  <div class="card">Executive Summary</div>
-  <div class="card">System Architecture</div>
-  <div class="card">Smart Contract</div>
-  <div class="card">Transfer</div>
-  <div class="card">Tokenomics</div>
-  <div class="card">Security</div>
+        <div class="whitepaper-nav">
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">1</div><strong>Executive Summary</strong></div><p>Minimal ERC-20 overview, fixed supply, deterministic execution, and absence of admin control.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">2</div><strong>System Architecture</strong></div><p>Direct mapping-based storage model, atomic execution, and event-based transparency.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">3</div><strong>Smart Contract Architecture</strong></div><p>Monolithic, immutable contract structure with no proxy pattern and no upgrade path.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">4</div><strong>Transfer Mechanism</strong></div><p>Deterministic, fee-free, permissionless balance transfer execution.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">5</div><strong>Allowance & Delegation</strong></div><p>Standard ERC-20 delegated spending with explicit approval and strict allowance reduction.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">6</div><strong>Tokenomics Structure</strong></div><p>Fixed supply with off-chain allocation framework and transparent external distribution model.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">7</div><strong>Security Framework</strong></div><p>Security through simplicity, no minting, no admin logic, no external calls, no upgradeability.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">8</div><strong>AI Intelligence Layer</strong></div><p>Off-chain analytical system designed for transparency and decision support without contract interaction.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">9</div><strong>Audit & Risk Analysis</strong></div><p>Low-complexity risk profile with explicit disclosure of off-chain distribution and liquidity risk.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">10</div><strong>Decentralization Model</strong></div><p>Contract-level decentralization with ecosystem-level decentralization evolving through participation.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">11</div><strong>Roadmap</strong></div><p>Six growth phases from foundation to AI integration and long-term AXION network vision.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">12</div><strong>Risk Disclosure</strong></div><p>Transparent statement of market, liquidity, distribution, and off-chain execution risks.</p></div>
+          <div class="whitepaper-link"><div class="title-row"><div class="icon-badge">13</div><strong>Final Conclusion</strong></div><p>Trust-minimized token architecture shaped by immutable code and transparent ecosystem execution.</p></div>
+        </div>
 
-</div>
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 01</div>
+            <div class="title-row">
+              <div class="icon-badge">1</div>
+              <h3>Executive Summary</h3>
+            </div>
+            <div class="content-block">
+              <h4>1.1 Core Overview</h4>
+              <p>AXION is a minimal ERC-20 token implementation deployed on BNB Smart Chain, designed with a fixed supply and a simplified, deterministic execution model.</p>
+              <p>The contract intentionally limits its functionality to core ERC-20 operations, avoiding additional modules, dynamic parameters, or administrative control mechanisms.</p>
+            </div>
+            <div class="content-block">
+              <h4>1.2 Fixed Supply Model</h4>
+              <p>AXION operates with a fixed total supply, defined at deployment and not subject to change.</p>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>uint256 public constant MAX_SUPPLY = 1_000_000_000 * 10**18;
+uint256 public totalSupply = MAX_SUPPLY;</pre>
+              </div>
+            </div>
+            <div class="content-block">
+              <h4>1.3 Single Genesis Distribution</h4>
+              <p>All tokens are assigned at deployment through a single initialization event.</p>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>constructor() {
+    balanceOf[msg.sender] = MAX_SUPPLY;
+    emit Transfer(address(0), msg.sender, MAX_SUPPLY);
+}</pre>
+              </div>
+            </div>
+            <div class="quote">AXION is a fixed-supply, control-free ERC-20 token, where all behavior is fully defined by immutable smart contract logic and can be verified directly on-chain.</div>
+          </div>
+        </article>
 
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 02</div>
+            <div class="title-row">
+              <div class="icon-badge">2</div>
+              <h3>System Architecture</h3>
+            </div>
+            <div class="content-block">
+              <h4>2.1 On-Chain State Model</h4>
+              <p>AXION utilizes a direct on-chain state architecture, where all token data is stored and managed through deterministic storage mappings defined within the smart contract.</p>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>mapping(address => uint256) public balanceOf;
+mapping(address => mapping(address => uint256)) public allowance;</pre>
+              </div>
+            </div>
+            <div class="content-block">
+              <h4>2.2 Execution Model</h4>
+              <p>All state transitions in AXION are executed synchronously within the EVM, without any asynchronous operations or external contract interactions.</p>
+              <ul>
+                <li>All functions execute atomically</li>
+                <li>State changes are applied instantly within a single transaction</li>
+                <li>If any condition fails, the entire transaction reverts</li>
+              </ul>
+            </div>
+            <div class="content-block">
+              <h4>2.3 Event Layer</h4>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>event Transfer(address indexed from, address indexed to, uint256 value);
+event Approval(address indexed owner, address indexed spender, uint256 value);</pre>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 03</div>
+            <div class="title-row">
+              <div class="icon-badge">3</div>
+              <h3>Smart Contract Architecture</h3>
+            </div>
+            <div class="content-block">
+              <h4>3.1 Contract Structure</h4>
+              <p>AXION is implemented as a single, self-contained ERC-20 smart contract, where all token logic is defined at deployment and remains immutable throughout its lifetime.</p>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>string public constant name = "AXION Token";
+string public constant symbol = "AX";
+uint8 public constant decimals = 18;</pre>
+              </div>
+            </div>
+            <div class="content-block">
+              <h4>3.2 Initialization Model</h4>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>constructor() {
+    balanceOf[msg.sender] = MAX_SUPPLY;
+    emit Transfer(address(0), msg.sender, MAX_SUPPLY);
+}</pre>
+              </div>
+            </div>
+            <div class="content-block">
+              <h4>3.3 Structural Properties</h4>
+              <ul>
+                <li>No proxy contracts</li>
+                <li>No upgradeable patterns</li>
+                <li>No external modules</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 04</div>
+            <div class="title-row">
+              <div class="icon-badge">4</div>
+              <h3>Transfer Mechanism</h3>
+            </div>
+            <div class="content-block">
+              <h4>4.1 Direct Transfer Flow</h4>
+              <p>AXION implements a direct and deterministic transfer mechanism, where token movements are executed through explicit balance updates without additional logic layers such as fees, taxes, or conditional restrictions.</p>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>function transfer(address to, uint256 amount) external returns (bool) {
+    _transfer(msg.sender, to, amount);
+    return true;
+}</pre>
+              </div>
+            </div>
+            <div class="content-block">
+              <h4>4.2 Internal Transfer Execution</h4>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>function _transfer(address from, address to, uint256 amount) internal {
+    require(from != address(0), "Invalid sender");
+    require(to != address(0), "Invalid recipient");
+    require(balanceOf[from] >= amount, "Insufficient balance");
+
+    balanceOf[from] -= amount;
+    balanceOf[to] += amount;
+
+    emit Transfer(from, to, amount);
+}</pre>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 05</div>
+            <div class="title-row">
+              <div class="icon-badge">5</div>
+              <h3>Allowance & Delegation</h3>
+            </div>
+            <div class="content-block">
+              <h4>5.1 Approval Mechanism</h4>
+              <p>AXION implements a standard ERC-20 allowance model, enabling token holders to authorize third-party addresses to spend tokens on their behalf.</p>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>function approve(address spender, uint256 amount) external returns (bool) {
+    require(spender != address(0), "Invalid spender");
+
+    allowance[msg.sender][spender] = amount;
+    emit Approval(msg.sender, spender, amount);
+
+    return true;
+}</pre>
+              </div>
+            </div>
+            <div class="content-block">
+              <h4>5.2 Delegated Transfer Execution</h4>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>function transferFrom(address from, address to, uint256 amount) external returns (bool) {
+    uint256 allowed = allowance[from][msg.sender];
+    require(allowed >= amount, "Allowance exceeded");
+
+    allowance[from][msg.sender] = allowed - amount;
+    emit Approval(from, msg.sender, allowance[from][msg.sender]);
+
+    _transfer(from, to, amount);
+    return true;
+}</pre>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card content-card" id="tokenomics">
+          <div class="card-inner">
+            <div class="tag">Section 06</div>
+            <div class="title-row">
+              <div class="icon-badge">6</div>
+              <h3>Tokenomics Structure</h3>
+            </div>
+            <div class="content-block">
+              <h4>6.1 Fixed Supply Model</h4>
+              <p>AXION operates with a fixed total supply model, where all tokens are created at deployment and no additional supply can be introduced under any circumstances.</p>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>uint256 public constant MAX_SUPPLY = 1_000_000_000 * 10**18;
+uint256 public totalSupply = MAX_SUPPLY;</pre>
+              </div>
+            </div>
+            <div class="content-block">
+              <h4>6.2 Allocation Framework</h4>
+              <p>This allocation model is declared as an off-chain framework and is not enforced by the contract.</p>
+              <div class="tokenomics-grid">
+                <div class="token-box"><span>Fund</span><strong>25%</strong></div>
+                <div class="token-box"><span>Liquidity</span><strong>25%</strong></div>
+                <div class="token-box"><span>Marketing</span><strong>20%</strong></div>
+                <div class="token-box"><span>CEX Listings</span><strong>20%</strong></div>
+                <div class="token-box"><span>Team</span><strong>10%</strong></div>
+              </div>
+            </div>
+            <div class="content-block">
+              <h4>6.3 Distribution Reality</h4>
+              <p>All tokens are assigned to the deployer at genesis. Distribution, vesting, and liquidity management are handled externally rather than enforced at contract level.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card content-card" id="security">
+          <div class="card-inner">
+            <div class="tag">Section 07</div>
+            <div class="title-row">
+              <div class="icon-badge">7</div>
+              <h3>Security Framework</h3>
+            </div>
+            <div class="content-block">
+              <h4>7.1 Core Security Model</h4>
+              <p>AXION’s security model is based on minimalism, determinism, and elimination of unnecessary logic, reducing the overall attack surface and preventing common vulnerabilities found in complex token contracts.</p>
+            </div>
+            <div class="content-block">
+              <h4>7.2 Verified Absence</h4>
+              <ul>
+                <li>No minting capability</li>
+                <li>No owner or privileged admin control</li>
+                <li>No fee or tax mechanism</li>
+                <li>No transfer restrictions</li>
+                <li>No upgradeability</li>
+              </ul>
+            </div>
+            <div class="content-block">
+              <h4>7.3 Transfer Integrity</h4>
+              <div class="proof">
+                <div class="proof-title">Code Proof</div>
+                <pre>require(from != address(0), "Invalid sender");
+require(to != address(0), "Invalid recipient");
+require(balanceOf[from] >= amount, "Insufficient balance");</pre>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 08</div>
+            <div class="title-row">
+              <div class="icon-badge">8</div>
+              <h3>AI Intelligence Layer</h3>
+            </div>
+            <div class="content-block">
+              <h4>8.1 Off-Chain Analytical Framework</h4>
+              <p>AXION introduces an AI-driven analytical layer designed to enhance ecosystem transparency, data interpretation, and user decision-making, without interacting directly with the smart contract execution.</p>
+            </div>
+            <div class="content-block">
+              <h4>8.2 Architectural Separation</h4>
+              <ul>
+                <li>No AI logic exists within the contract</li>
+                <li>No oracle integration is present</li>
+                <li>No external data feeds influence contract execution</li>
+              </ul>
+            </div>
+            <div class="content-block">
+              <h4>8.3 Analytical Modules</h4>
+              <ul>
+                <li>Risk Analysis Engine</li>
+                <li>Whale Activity Tracking</li>
+                <li>Market Intelligence Module</li>
+                <li>Signal Generation Layer</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 09</div>
+            <div class="title-row">
+              <div class="icon-badge">9</div>
+              <h3>Audit & Risk Analysis</h3>
+            </div>
+            <div class="content-block">
+              <h4>9.1 Audit Perspective</h4>
+              <p>AXION’s smart contract has been evaluated based on code structure, execution behavior, and absence of common vulnerability patterns. The contract follows a minimal ERC-20 implementation, significantly reducing complexity and limiting the overall attack surface.</p>
+            </div>
+            <div class="content-block">
+              <h4>9.2 Key Findings</h4>
+              <ul>
+                <li>Inflation risk eliminated</li>
+                <li>Admin control risk eliminated</li>
+                <li>Fee manipulation eliminated</li>
+                <li>Reentrancy eliminated</li>
+                <li>Distribution risk remains off-chain</li>
+                <li>Liquidity risk remains external</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 10</div>
+            <div class="title-row">
+              <div class="icon-badge">10</div>
+              <h3>Decentralization Model</h3>
+            </div>
+            <div class="content-block">
+              <h4>10.1 Contract-Level Decentralization</h4>
+              <p>AXION’s decentralization model is defined by the absence of administrative control and immutable contract logic, combined with an externally managed token distribution and liquidity structure.</p>
+            </div>
+            <div class="content-block">
+              <h4>10.2 Verified Absence</h4>
+              <ul>
+                <li>No owner</li>
+                <li>No governance layer</li>
+                <li>No upgrade path</li>
+                <li>No transfer censorship</li>
+              </ul>
+            </div>
+            <div class="content-block">
+              <h4>10.3 Ecosystem-Level Reality</h4>
+              <p>The protocol achieves full decentralization at the smart contract level, while ecosystem-level decentralization evolves through distribution, liquidity, and market participation over time.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card content-card" id="roadmap">
+          <div class="card-inner">
+            <div class="tag">Section 11</div>
+            <div class="title-row">
+              <div class="icon-badge">11</div>
+              <h3>Roadmap</h3>
+            </div>
+            <div class="content-block">
+              <h4>11.1 Six Growth Phases</h4>
+              <p>AXION’s development strategy is structured into six progressive growth phases designed to guide the protocol from initial deployment to a fully autonomous and scalable ecosystem.</p>
+            </div>
+
+            <div class="phase-grid">
+              <div class="phase phase-cyan">
+                <strong>Phase 1 — Foundation</strong>
+                <ul>
+                  <li>Smart contract deployment</li>
+                  <li>Brand identity launch</li>
+                  <li>Community building</li>
+                  <li>Initial liquidity setup</li>
+                </ul>
+              </div>
+              <div class="phase phase-blue">
+                <strong>Phase 2 — Growth & Visibility</strong>
+                <ul>
+                  <li>Strategic marketing campaigns</li>
+                  <li>Early exchange listings</li>
+                  <li>Community expansion</li>
+                  <li>Ecosystem partnerships</li>
+                </ul>
+              </div>
+              <div class="phase phase-purple">
+                <strong>Phase 3 — Ecosystem Expansion</strong>
+                <ul>
+                  <li>Analytics dashboard launch</li>
+                  <li>DeFi tools integration</li>
+                  <li>Utility expansion</li>
+                  <li>Technical collaborations</li>
+                </ul>
+              </div>
+              <div class="phase phase-teal">
+                <strong>Phase 4 — AI Integration</strong>
+                <ul>
+                  <li>AI-powered analytics</li>
+                  <li>Automated DeFi tools</li>
+                  <li>AI partnerships</li>
+                  <li>Intelligent data layer</li>
+                </ul>
+              </div>
+              <div class="phase phase-green">
+                <strong>Phase 5 — Advanced Infrastructure</strong>
+                <ul>
+                  <li>Protocol optimization</li>
+                  <li>Cross-chain integrations</li>
+                  <li>Scalable architecture</li>
+                  <li>Expanded AI capabilities</li>
+                </ul>
+              </div>
+              <div class="phase phase-pink">
+                <strong>Phase 6 — AXION Network</strong>
+                <ul>
+                  <li>Proprietary network R&D</li>
+                  <li>Layer infrastructure design</li>
+                  <li>Independent ecosystem</li>
+                  <li>Full decentralization</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 12</div>
+            <div class="title-row">
+              <div class="icon-badge">12</div>
+              <h3>Risk Disclosure</h3>
+            </div>
+            <div class="content-block">
+              <h4>12.1 Key Risk Areas</h4>
+              <p>Participation in the AXION ecosystem involves inherent risks associated with blockchain technology, token markets, and externally managed economic structures.</p>
+              <ul>
+                <li>Distribution risk</li>
+                <li>Liquidity risk</li>
+                <li>Market volatility</li>
+                <li>Off-chain execution risk</li>
+                <li>Regulatory uncertainty</li>
+              </ul>
+            </div>
+            <div class="quote">Users are fully responsible for their actions. AXION does not guarantee profits.</div>
+          </div>
+        </article>
+
+        <article class="card content-card">
+          <div class="card-inner">
+            <div class="tag">Section 13</div>
+            <div class="title-row">
+              <div class="icon-badge">13</div>
+              <h3>Final Conclusion</h3>
+            </div>
+            <div class="content-block">
+              <h4>13.1 Closing Statement</h4>
+              <p>AXION represents a minimal, transparent, and deterministic ERC-20 implementation, where all token behavior is defined by immutable smart contract logic and enforced without administrative control.</p>
+              <p>The protocol is intentionally designed to eliminate complexity, avoiding mechanisms such as minting, fees, governance, and upgradeability. By doing so, AXION reduces potential vulnerabilities and ensures that all interactions remain predictable, verifiable, and consistent over time.</p>
+            </div>
+            <div class="quote">AXION is a fixed-supply, control-free ERC-20 token, where all behavior is governed by immutable smart contract logic, and long-term value is shaped through transparent ecosystem participation.</div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-row">
+        <a class="brand" href="https://axiondefi.com/" target="_blank" rel="noopener noreferrer">
+          <div class="brand-mark">
+            <img src="https://raw.githubusercontent.com/axionteam645/axion-dashboard/main/axion-logo.png" alt="AXION Logo">
+          </div>
+          <div class="brand-text">
+            <strong>AXION</strong>
+            <small>INTELLIGENT LAYER FOR DEFI</small>
+          </div>
+        </a>
+        <div class="footer-links">
+          <a href="https://axiondefi.com/" target="_blank" rel="noopener noreferrer">Website</a>
+          <a href="https://t.me/axiondefi" target="_blank" rel="noopener noreferrer">Telegram</a>
+          <a href="https://x.com/axiondefix" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
